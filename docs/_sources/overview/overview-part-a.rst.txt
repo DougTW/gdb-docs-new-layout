@@ -1,0 +1,322 @@
+.. _overview-part-a:
+
+.. This is "part a" of the two files from Ben's
+   oneAPI Programming Guide
+   software-development-process/debugging-the-dpcpp-and-openmp-offload-process/debug-the-offload-process.rst
+
+Intel® Distribution for GDB\*
+-----------------------------
+
+The Intel® Distribution for GDB\* is an application debugger that allows
+you to inspect and modify the program state. With the debugger, both the
+host part of your application and kernels that are offloaded to a device
+can be debugged seamlessly in the same debug session. The debugger
+supports the CPU, GPU, and FPGA-emulation devices. Major features of the
+tool include:
+
+
+-  Automatically attaching to the GPU device to listen to debug events
+
+
+-  Automatically detecting JIT-compiled, or dynamically loaded, kernel
+   code for debugging
+
+
+-  Defining breakpoints (both inside and outside of a kernel) to halt
+   the execution of the program
+
+
+-  Listing the threads; switching the current thread context
+
+
+-  Listing active SIMD lanes; switching the current SIMD lane context
+   per thread
+
+
+-  Evaluating and printing the values of expressions in multiple thread
+   and SIMD lane contexts
+
+
+-  Inspecting and changing register values
+
+
+-  Disassembling the machine instructions
+
+
+-  Displaying and navigating the function call-stack
+
+
+-  Source- and instruction-level stepping
+
+
+-  Non-stop and all-stop debug mode
+
+
+-  Recording the execution using Intel Processor Trace (CPU only)
+
+
+For more information and links to full documentation for Intel
+Distribution for GDB, see *Get Started with Intel® Distribution for GDB
+on* `Linux\*
+Host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-linux/top.html>`_ *\|* `Windows\*
+Host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-windows/top.html>`_.
+
+
+Debug GPU Execution Using Intel® Distribution for GDB\* on compatible GPUs
+--------------------------------------------------------------------------
+
+
+
+Intel® Distribution for GDB\* is extensively documented in *Get Started
+with Intel® Distribution for GDB on* `Linux\*
+Host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-linux/top.html>`_ *\|* `Windows\*
+Host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-windows/top.html>`_.
+Useful commands are briefly described in the *Intel® Distribution for
+GDB* `Reference
+Sheet <https://cdrdv2.intel.com/v1/dl/getContent/671558>`_.
+However, since debugging applications with GDB\* on a GPU differs
+slightly from the process on a host (some commands are used
+differently and you might see some unfamiliar output), some of those
+differences are summarized here.
+
+
+The `Debugging with Intel® Distribution for GDB on Linux OS Host
+Tutorial <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html>`_
+shows a sample debug session where we start a debug session of a SYCL
+program, define a breakpoint inside the kernel, run the program to
+offload to the GPU, print the value of a local variable, switch to the
+SIMD lane 5 of the current thread, and print the variable again.
+
+
+As in normal GDB*, for a command ``<CMD>``, use the ``help <CMD>``
+command of GDB to read the information text for ``<CMD>``. For example:
+
+
+.. code-block:: bash
+
+
+   (gdb) help info threads
+   Display currently known threads.
+   Usage: info threads [OPTION]... [ID]...
+   If ID is given, it is a space-separated list of IDs of threads to display.
+   Otherwise, all threads are displayed.
+
+
+   Options:
+     -gid
+       Show global thread IDs.
+
+
+Inferiors, Threads, and SIMD Lanes Referencing in GDB\*
+-------------------------------------------------------
+
+The threads of the application can be listed using the debugger. The
+printed information includes the thread ids and the locations that the
+threads are currently stopped at. For the GPU threads, the debugger also
+prints the active SIMD lanes.
+
+
+In the example referenced above, you may see some unfamiliar formatting
+used when threads are displayed via the GDB "info threads" command:
+
+
+.. code-block:: bash
+
+
+     Id             Target Id            Frame
+     1.1            Thread <id omitted>  <frame omitted>
+     1.2            Thread <id omitted>  <frame omitted>
+   * 2.1:1          Thread 1073741824     <frame> at array-transform.cpp:61
+     2.1:[3 5 7]    Thread 1073741824     <frame> at array-transform.cpp:61
+     2.2:[1 3 5 7]  Thread 1073741888     <frame> at array-transform.cpp:61
+     2.3:[1 3 5 7]  Thread 1073742080     <frame> at array-transform.cpp:61
+
+
+Here, GDB is displaying the threads with the following format:
+``<inferior_number>.<thread_number>:<SIMD Lane/s>``
+
+
+So, for example, the thread id "``2.3:[1 3 5 7]``" refers to SIMD lanes
+1, 3, 5, and 7 of thread 3 running on inferior 2.
+
+
+An "inferior" in the GDB terminology is the process that is being
+debugged. In the debug session of a program that offloads to the GPU,
+there will typically be two inferiors; one "native" inferior
+representing a host part of the program (inferior 1 above), and
+another "remote" inferior representing the GPU device (inferior 2
+above). Intel® Distribution for GDB automatically creates the GPU
+inferior - no extra steps are required.
+
+
+When you print the value of an expression, the expression is evaluated
+in the context of the current thread's current SIMD lane. You can switch
+the thread as well as the SIMD lane to change the context using the
+"thread" command such as "``thread 3:4`` ", "``thread :6`` ", or
+"``thread 7`` ". The first command makes a switch to the thread 3 and
+SIMD lane 4. The second command switches to SIMD lane 6 within the
+current thread. The third command switches to thread 7. The default lane
+selected will either be the previously selected lane, if it is active,
+or the first active lane within the thread.
+
+
+The "thread apply command" may be similarly broad or focused (which can
+make it easier to limit the output from, for example, a command to
+inspect a variable). For more details and examples about debugging with
+SIMD lanes, see the `Debugging with Intel® Distribution for GDB on Linux
+OS Host Tutorial <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html>`_.
+
+
+More information about threads and inferiors in GDB can be found from
+https://sourceware.org/gdb/current/onlinedocs/gdb/Threads.html and
+https://sourceware.org/gdb/current/onlinedocs/gdb/Inferiors-Connections-and-Programs.html#Inferiors-Connections-and-Programs.
+
+
+Controlling the Scheduler
+-------------------------
+
+By default, when a thread hits a breakpoint, the debugger stops all the
+threads before displaying the breakpoint hit event to the user. This is
+the all-stop mode of GDB. In the non-stop mode, the stop event of a
+thread is displayed while the other threads run freely.
+
+
+In all-stop mode, when a thread is resumed (for example, to resume
+normally with the ``continue`` command, or for stepping with the
+``next`` command), all the other threads are also resumed. If you have
+some breakpoints set in threaded applications, this can quickly get
+confusing, as the next thread that hits the breakpoint may not be the
+thread you are following.
+
+
+You can control this behavior using the ``set scheduler-locking``
+command to prevent resuming other threads when the current thread is
+resumed. This is useful to avoid intervention of other threads while
+only the current thread executes instructions. Type
+``help set scheduler-locking`` for the available options, and see
+https://sourceware.org/gdb/current/onlinedocs/gdb/Thread-Stops.html for
+more information. Note that SIMD lanes cannot be resumed individually;
+they are resumed together with their underlying thread.
+
+
+In non-stop mode, by default, only the current thread is resumed. To
+resume all threads, pass the "``-a``" flag to the ``continue`` command.
+
+
+Dumping Information on One or More Threads/Lanes (Thread Apply)
+---------------------------------------------------------------
+
+Commands for inspecting the program state are typically executed in the
+context of the current thread's current SIMD lane. Sometimes it is
+desired to inspect a value in multiple contexts. For such needs, the
+``thread apply`` command can be used. For instance, the following
+executes the ``print element`` command for the SIMD lanes 3-5 of Thread
+2.5:
+
+
+.. code-block:: bash
+
+
+   (gdb) thread apply 2.5:3-5 print element
+
+
+Similarly, the following runs the same command in the context of SIMD
+lane 3, 5, and 6 of the current thread:
+
+
+.. code-block:: bash
+
+
+   (gdb) thread apply :3 :5 :6 print element
+
+
+Stepping GPU Code After a Breakpoint
+------------------------------------
+
+To stop inside the kernel that is offloaded to the GPU, simply define a
+breakpoint at a source line inside the kernel. When a GPU thread hits
+that source line, the debugger stops the execution and shows the
+breakpoint hit. To single-step a thread over a source-line, use the
+``step`` or ``next`` commands. The ``step`` commands steps into
+functions while ``next`` steps over calls. Before stepping, we recommend
+to ``set scheduler-locking step`` to prevent intervention of other
+threads.
+
+
+Building a SYCL Executable for Use with Intel® Distribution for GDB\*
+---------------------------------------------------------------------
+
+Much like when you want to debug a host application, you need to set
+some additional flags to create a binary that can be debugged on the
+GPU. See `Get Started with Intel® Distribution for GDB on Linux\*
+Host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-linux/top.html>`_
+for details.
+
+
+For a smooth debug experience when using the just-in-time (JIT)
+compilation flow, enable debug information emission from the compiler
+via the ``-g`` flag, and disable optimizations via the ``-O0`` flag for
+both a host and JIT-compiled kernel of the application. The flags for
+the kernel are taken during link time. For example:
+
+
+-  Compile your program using: ``icpx -fsycl -g -O0 -c myprogram.cpp``
+-  Link your program using: ``icpx -fsycl -g -O0 myprogram.o``
+
+
+If you are using CMake to configure the build of your program, use the
+``Debug`` type for the ``CMAKE_BUILD_TYPE``, and append ``-O0`` to the
+``CMAKE_CXX_FLAGS_DEBUG`` variable. For example:
+``set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")``
+
+
+Applications that are built for debugging may take a little longer to
+start up than when built with the usual "release" level of optimization.
+Thus, your program may appear to run a little more slowly when started
+in the debugger. If this causes problems, developers of larger
+applications may want to use ahead-of-time (AOT) compilation to JIT the
+offload code when their program is built, rather than when it is run
+(warning, this may also take longer to build when using ``-g -O0``). For
+more information, see `Compilation Flow
+Overview <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/compilation-flow-overview.html>`_.
+
+
+When doing ahead-of-time compilation for GPU, you must use a device type
+that fits your target device. Run the following command to see the
+available GPU device options on your current machine:
+``ocloc compile --help``
+
+
+Additionally, the debug mode for the kernel must be enabled. The
+following example AoT compilation command targets the KBL device:
+
+
+.. code-block:: cpp
+
+
+   dpcpp -g -O0 -fsycl-targets=spir64_gen-unknown-unknown-sycldevice \
+   -Xs "-device kbl -internal_options -cl-kernel-debug-enable -options -cl-opt-disable" myprogram.cpp
+
+
+Building an OpenMP\* Executable for use with Intel® Distribution for GDB\*
+--------------------------------------------------------------------------
+
+Compile and link your program using the ``-g -O0`` flags. For example:
+
+
+.. code-block:: bash
+
+
+   icpx -fiopenmp -O0 -fopenmp-targets=spir64 -c -g myprogram.cpp
+   icpx -fiopenmp -O0 -fopenmp-targets=spir64 -g myprogram.o
+
+
+Set the following environment variables to disable optimizations and
+enable debug info for the kernel:
+
+
+.. code-block:: bash
+
+
+   export LIBOMPTARGET_OPENCL_COMPILATION_OPTIONS="-g -cl-opt-disable"
+   export LIBOMPTARGET_LEVEL0_COMPILATION_OPTIONS="-g -cl-opt-disable"

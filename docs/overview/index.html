@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>What is Intel® Distribution for GDB*? &#8212; GDB Docs: Layout Four</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script src="../_static/documentation_options.js?v=8a448e45"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User’s Guide" href="../gdb-ug/index.html" />
+    <link rel="prev" title="Documentation" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">GDB Docs: Layout Four</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   What is Intel® Distribution for GDB*?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html">
+   Getting Started Guide: Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html">
+   Getting Started Guide: Windows
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../gdb-ug/index.html">
+   User’s Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="debug-cpu-gpu-major-diffs.html">
+     Debugging a Kernel on CPU and GPU: Major Differences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dbex/debug-linux-ex-lt.html">
+   Debugging Linux Applications with GDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dbex/debug-windows-ex.html">
+   Debugging Windows Applications with GDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../videos/index.html">
+   Videos
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/blank.html">
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/gdb-oneapi-faq.html">
+   FAQs for GDB*
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/known-issues.html">
+   Known Issues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/release-notes.html">
+   Release Notes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/troubleshooting.html">
+   Troubleshooting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://www.intel.com">
+   Intel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/distribution-for-gdb.html">
+   GDB homepage
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/overview/index.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debug-gpu-execution-using-intel-distribution-for-gdb-on-compatible-gpus">
+   Debug GPU Execution Using Intel® Distribution for GDB* on compatible GPUs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inferiors-threads-and-simd-lanes-referencing-in-gdb">
+   Inferiors, Threads, and SIMD Lanes Referencing in GDB*
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#controlling-the-scheduler">
+   Controlling the Scheduler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dumping-information-on-one-or-more-threads-lanes-thread-apply">
+   Dumping Information on One or More Threads/Lanes (Thread Apply)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stepping-gpu-code-after-a-breakpoint">
+   Stepping GPU Code After a Breakpoint
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-a-sycl-executable-for-use-with-intel-distribution-for-gdb">
+   Building a SYCL Executable for Use with Intel® Distribution for GDB*
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-an-openmp-executable-for-use-with-intel-distribution-for-gdb">
+   Building an OpenMP* Executable for use with Intel® Distribution for GDB*
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>What is Intel® Distribution for GDB*?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#debug-gpu-execution-using-intel-distribution-for-gdb-on-compatible-gpus">
+   Debug GPU Execution Using Intel® Distribution for GDB* on compatible GPUs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inferiors-threads-and-simd-lanes-referencing-in-gdb">
+   Inferiors, Threads, and SIMD Lanes Referencing in GDB*
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#controlling-the-scheduler">
+   Controlling the Scheduler
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dumping-information-on-one-or-more-threads-lanes-thread-apply">
+   Dumping Information on One or More Threads/Lanes (Thread Apply)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stepping-gpu-code-after-a-breakpoint">
+   Stepping GPU Code After a Breakpoint
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-a-sycl-executable-for-use-with-intel-distribution-for-gdb">
+   Building a SYCL Executable for Use with Intel® Distribution for GDB*
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-an-openmp-executable-for-use-with-intel-distribution-for-gdb">
+   Building an OpenMP* Executable for use with Intel® Distribution for GDB*
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="what-is-intel-distribution-for-gdb">
+<span id="overview-index"></span><h1>What is Intel® Distribution for GDB*?<a class="headerlink" href="#what-is-intel-distribution-for-gdb" title="Link to this heading">#</a></h1>
+<p>The Intel® Distribution for GDB* is an application debugger that allows
+you to inspect and modify the program state. With the debugger, both the
+host part of your application and kernels that are offloaded to a device
+can be debugged seamlessly in the same debug session. The debugger
+supports the CPU, GPU, and FPGA-emulation devices. Major features of the
+tool include:</p>
+<ul class="simple">
+<li><p>Automatically attaching to the GPU device to listen to debug events</p></li>
+<li><p>Automatically detecting JIT-compiled, or dynamically loaded, kernel
+code for debugging</p></li>
+<li><p>Defining breakpoints (both inside and outside of a kernel) to halt
+the execution of the program</p></li>
+<li><p>Listing the threads; switching the current thread context</p></li>
+<li><p>Listing active SIMD lanes; switching the current SIMD lane context
+per thread</p></li>
+<li><p>Evaluating and printing the values of expressions in multiple thread
+and SIMD lane contexts</p></li>
+<li><p>Inspecting and changing register values</p></li>
+<li><p>Disassembling the machine instructions</p></li>
+<li><p>Displaying and navigating the function call-stack</p></li>
+<li><p>Source- and instruction-level stepping</p></li>
+<li><p>Non-stop and all-stop debug mode</p></li>
+<li><p>Recording the execution using Intel Processor Trace (CPU only)</p></li>
+</ul>
+<p>For more information and links to full documentation for Intel
+Distribution for GDB, see <em>Get Started with Intel® Distribution for GDB
+on</em> <a class="reference external" href="https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-linux/top.html">Linux*
+Host</a> <em>|</em> <a class="reference external" href="https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-windows/top.html">Windows*
+Host</a>.</p>
+<section id="debug-gpu-execution-using-intel-distribution-for-gdb-on-compatible-gpus">
+<h2>Debug GPU Execution Using Intel® Distribution for GDB* on compatible GPUs<a class="headerlink" href="#debug-gpu-execution-using-intel-distribution-for-gdb-on-compatible-gpus" title="Link to this heading">#</a></h2>
+<p>Intel® Distribution for GDB* is extensively documented in <em>Get Started
+with Intel® Distribution for GDB on</em> <a class="reference external" href="https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-linux/top.html">Linux*
+Host</a> <em>|</em> <a class="reference external" href="https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-windows/top.html">Windows*
+Host</a>.
+Useful commands are briefly described in the <em>Intel® Distribution for
+GDB</em> <a class="reference external" href="https://cdrdv2.intel.com/v1/dl/getContent/671558">Reference
+Sheet</a>.
+However, since debugging applications with GDB* on a GPU differs
+slightly from the process on a host (some commands are used
+differently and you might see some unfamiliar output), some of those
+differences are summarized here.</p>
+<p>The <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html">Debugging with Intel® Distribution for GDB on Linux OS Host
+Tutorial</a>
+shows a sample debug session where we start a debug session of a SYCL
+program, define a breakpoint inside the kernel, run the program to
+offload to the GPU, print the value of a local variable, switch to the
+SIMD lane 5 of the current thread, and print the variable again.</p>
+<p>As in normal GDB*, for a command <code class="docutils literal notranslate"><span class="pre">&lt;CMD&gt;</span></code>, use the <code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">&lt;CMD&gt;</span></code>
+command of GDB to read the information text for <code class="docutils literal notranslate"><span class="pre">&lt;CMD&gt;</span></code>. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span><span class="nb">help</span><span class="w"> </span>info<span class="w"> </span>threads
+Display<span class="w"> </span>currently<span class="w"> </span>known<span class="w"> </span>threads.
+Usage:<span class="w"> </span>info<span class="w"> </span>threads<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>ID<span class="o">]</span>...
+If<span class="w"> </span>ID<span class="w"> </span>is<span class="w"> </span>given,<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>space-separated<span class="w"> </span>list<span class="w"> </span>of<span class="w"> </span>IDs<span class="w"> </span>of<span class="w"> </span>threads<span class="w"> </span>to<span class="w"> </span>display.
+Otherwise,<span class="w"> </span>all<span class="w"> </span>threads<span class="w"> </span>are<span class="w"> </span>displayed.
+
+
+Options:
+<span class="w">  </span>-gid
+<span class="w">    </span>Show<span class="w"> </span>global<span class="w"> </span>thread<span class="w"> </span>IDs.
+</pre></div>
+</div>
+</section>
+<section id="inferiors-threads-and-simd-lanes-referencing-in-gdb">
+<h2>Inferiors, Threads, and SIMD Lanes Referencing in GDB*<a class="headerlink" href="#inferiors-threads-and-simd-lanes-referencing-in-gdb" title="Link to this heading">#</a></h2>
+<p>The threads of the application can be listed using the debugger. The
+printed information includes the thread ids and the locations that the
+threads are currently stopped at. For the GPU threads, the debugger also
+prints the active SIMD lanes.</p>
+<p>In the example referenced above, you may see some unfamiliar formatting
+used when threads are displayed via the GDB “info threads” command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>Id<span class="w">             </span>Target<span class="w"> </span>Id<span class="w">            </span>Frame
+<span class="w">  </span><span class="m">1</span>.1<span class="w">            </span>Thread<span class="w"> </span>&lt;id<span class="w"> </span>omitted&gt;<span class="w">  </span>&lt;frame<span class="w"> </span>omitted&gt;
+<span class="w">  </span><span class="m">1</span>.2<span class="w">            </span>Thread<span class="w"> </span>&lt;id<span class="w"> </span>omitted&gt;<span class="w">  </span>&lt;frame<span class="w"> </span>omitted&gt;
+*<span class="w"> </span><span class="m">2</span>.1:1<span class="w">          </span>Thread<span class="w"> </span><span class="m">1073741824</span><span class="w">     </span>&lt;frame&gt;<span class="w"> </span>at<span class="w"> </span>array-transform.cpp:61
+<span class="w">  </span><span class="m">2</span>.1:<span class="o">[</span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">7</span><span class="o">]</span><span class="w">    </span>Thread<span class="w"> </span><span class="m">1073741824</span><span class="w">     </span>&lt;frame&gt;<span class="w"> </span>at<span class="w"> </span>array-transform.cpp:61
+<span class="w">  </span><span class="m">2</span>.2:<span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">7</span><span class="o">]</span><span class="w">  </span>Thread<span class="w"> </span><span class="m">1073741888</span><span class="w">     </span>&lt;frame&gt;<span class="w"> </span>at<span class="w"> </span>array-transform.cpp:61
+<span class="w">  </span><span class="m">2</span>.3:<span class="o">[</span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">7</span><span class="o">]</span><span class="w">  </span>Thread<span class="w"> </span><span class="m">1073742080</span><span class="w">     </span>&lt;frame&gt;<span class="w"> </span>at<span class="w"> </span>array-transform.cpp:61
+</pre></div>
+</div>
+<p>Here, GDB is displaying the threads with the following format:
+<code class="docutils literal notranslate"><span class="pre">&lt;inferior_number&gt;.&lt;thread_number&gt;:&lt;SIMD</span> <span class="pre">Lane/s&gt;</span></code></p>
+<p>So, for example, the thread id “<code class="docutils literal notranslate"><span class="pre">2.3:[1</span> <span class="pre">3</span> <span class="pre">5</span> <span class="pre">7]</span></code>” refers to SIMD lanes
+1, 3, 5, and 7 of thread 3 running on inferior 2.</p>
+<p>An “inferior” in the GDB terminology is the process that is being
+debugged. In the debug session of a program that offloads to the GPU,
+there will typically be two inferiors; one “native” inferior
+representing a host part of the program (inferior 1 above), and
+another “remote” inferior representing the GPU device (inferior 2
+above). Intel® Distribution for GDB automatically creates the GPU
+inferior - no extra steps are required.</p>
+<p>When you print the value of an expression, the expression is evaluated
+in the context of the current thread’s current SIMD lane. You can switch
+the thread as well as the SIMD lane to change the context using the
+“thread” command such as “<code class="docutils literal notranslate"><span class="pre">thread</span> <span class="pre">3:4</span></code> “, “<code class="docutils literal notranslate"><span class="pre">thread</span> <span class="pre">:6</span></code> “, or
+“<code class="docutils literal notranslate"><span class="pre">thread</span> <span class="pre">7</span></code> “. The first command makes a switch to the thread 3 and
+SIMD lane 4. The second command switches to SIMD lane 6 within the
+current thread. The third command switches to thread 7. The default lane
+selected will either be the previously selected lane, if it is active,
+or the first active lane within the thread.</p>
+<p>The “thread apply command” may be similarly broad or focused (which can
+make it easier to limit the output from, for example, a command to
+inspect a variable). For more details and examples about debugging with
+SIMD lanes, see the <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html">Debugging with Intel® Distribution for GDB on Linux
+OS Host Tutorial</a>.</p>
+<p>More information about threads and inferiors in GDB can be found from
+<a class="reference external" href="https://sourceware.org/gdb/current/onlinedocs/gdb/Threads.html">https://sourceware.org/gdb/current/onlinedocs/gdb/Threads.html</a> and
+<a class="reference external" href="https://sourceware.org/gdb/current/onlinedocs/gdb/Inferiors-Connections-and-Programs.html#Inferiors-Connections-and-Programs">https://sourceware.org/gdb/current/onlinedocs/gdb/Inferiors-Connections-and-Programs.html#Inferiors-Connections-and-Programs</a>.</p>
+</section>
+<section id="controlling-the-scheduler">
+<h2>Controlling the Scheduler<a class="headerlink" href="#controlling-the-scheduler" title="Link to this heading">#</a></h2>
+<p>By default, when a thread hits a breakpoint, the debugger stops all the
+threads before displaying the breakpoint hit event to the user. This is
+the all-stop mode of GDB. In the non-stop mode, the stop event of a
+thread is displayed while the other threads run freely.</p>
+<p>In all-stop mode, when a thread is resumed (for example, to resume
+normally with the <code class="docutils literal notranslate"><span class="pre">continue</span></code> command, or for stepping with the
+<code class="docutils literal notranslate"><span class="pre">next</span></code> command), all the other threads are also resumed. If you have
+some breakpoints set in threaded applications, this can quickly get
+confusing, as the next thread that hits the breakpoint may not be the
+thread you are following.</p>
+<p>You can control this behavior using the <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">scheduler-locking</span></code>
+command to prevent resuming other threads when the current thread is
+resumed. This is useful to avoid intervention of other threads while
+only the current thread executes instructions. Type
+<code class="docutils literal notranslate"><span class="pre">help</span> <span class="pre">set</span> <span class="pre">scheduler-locking</span></code> for the available options, and see
+<a class="reference external" href="https://sourceware.org/gdb/current/onlinedocs/gdb/Thread-Stops.html">https://sourceware.org/gdb/current/onlinedocs/gdb/Thread-Stops.html</a> for
+more information. Note that SIMD lanes cannot be resumed individually;
+they are resumed together with their underlying thread.</p>
+<p>In non-stop mode, by default, only the current thread is resumed. To
+resume all threads, pass the “<code class="docutils literal notranslate"><span class="pre">-a</span></code>” flag to the <code class="docutils literal notranslate"><span class="pre">continue</span></code> command.</p>
+</section>
+<section id="dumping-information-on-one-or-more-threads-lanes-thread-apply">
+<h2>Dumping Information on One or More Threads/Lanes (Thread Apply)<a class="headerlink" href="#dumping-information-on-one-or-more-threads-lanes-thread-apply" title="Link to this heading">#</a></h2>
+<p>Commands for inspecting the program state are typically executed in the
+context of the current thread’s current SIMD lane. Sometimes it is
+desired to inspect a value in multiple contexts. For such needs, the
+<code class="docutils literal notranslate"><span class="pre">thread</span> <span class="pre">apply</span></code> command can be used. For instance, the following
+executes the <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">element</span></code> command for the SIMD lanes 3-5 of Thread
+2.5:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>thread<span class="w"> </span>apply<span class="w"> </span><span class="m">2</span>.5:3-5<span class="w"> </span>print<span class="w"> </span>element
+</pre></div>
+</div>
+<p>Similarly, the following runs the same command in the context of SIMD
+lane 3, 5, and 6 of the current thread:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>thread<span class="w"> </span>apply<span class="w"> </span>:3<span class="w"> </span>:5<span class="w"> </span>:6<span class="w"> </span>print<span class="w"> </span>element
+</pre></div>
+</div>
+</section>
+<section id="stepping-gpu-code-after-a-breakpoint">
+<h2>Stepping GPU Code After a Breakpoint<a class="headerlink" href="#stepping-gpu-code-after-a-breakpoint" title="Link to this heading">#</a></h2>
+<p>To stop inside the kernel that is offloaded to the GPU, simply define a
+breakpoint at a source line inside the kernel. When a GPU thread hits
+that source line, the debugger stops the execution and shows the
+breakpoint hit. To single-step a thread over a source-line, use the
+<code class="docutils literal notranslate"><span class="pre">step</span></code> or <code class="docutils literal notranslate"><span class="pre">next</span></code> commands. The <code class="docutils literal notranslate"><span class="pre">step</span></code> commands steps into
+functions while <code class="docutils literal notranslate"><span class="pre">next</span></code> steps over calls. Before stepping, we recommend
+to <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">scheduler-locking</span> <span class="pre">step</span></code> to prevent intervention of other
+threads.</p>
+</section>
+<section id="building-a-sycl-executable-for-use-with-intel-distribution-for-gdb">
+<h2>Building a SYCL Executable for Use with Intel® Distribution for GDB*<a class="headerlink" href="#building-a-sycl-executable-for-use-with-intel-distribution-for-gdb" title="Link to this heading">#</a></h2>
+<p>Much like when you want to debug a host application, you need to set
+some additional flags to create a binary that can be debugged on the
+GPU. See <a class="reference external" href="https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-linux/top.html">Get Started with Intel® Distribution for GDB on Linux*
+Host</a>
+for details.</p>
+<p>For a smooth debug experience when using the just-in-time (JIT)
+compilation flow, enable debug information emission from the compiler
+via the <code class="docutils literal notranslate"><span class="pre">-g</span></code> flag, and disable optimizations via the <code class="docutils literal notranslate"><span class="pre">-O0</span></code> flag for
+both a host and JIT-compiled kernel of the application. The flags for
+the kernel are taken during link time. For example:</p>
+<ul class="simple">
+<li><p>Compile your program using: <code class="docutils literal notranslate"><span class="pre">icpx</span> <span class="pre">-fsycl</span> <span class="pre">-g</span> <span class="pre">-O0</span> <span class="pre">-c</span> <span class="pre">myprogram.cpp</span></code></p></li>
+<li><p>Link your program using: <code class="docutils literal notranslate"><span class="pre">icpx</span> <span class="pre">-fsycl</span> <span class="pre">-g</span> <span class="pre">-O0</span> <span class="pre">myprogram.o</span></code></p></li>
+</ul>
+<p>If you are using CMake to configure the build of your program, use the
+<code class="docutils literal notranslate"><span class="pre">Debug</span></code> type for the <code class="docutils literal notranslate"><span class="pre">CMAKE_BUILD_TYPE</span></code>, and append <code class="docutils literal notranslate"><span class="pre">-O0</span></code> to the
+<code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS_DEBUG</span></code> variable. For example:
+<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">(CMAKE_CXX_FLAGS_DEBUG</span> <span class="pre">&quot;${CMAKE_CXX_FLAGS_DEBUG}</span> <span class="pre">-O0&quot;)</span></code></p>
+<p>Applications that are built for debugging may take a little longer to
+start up than when built with the usual “release” level of optimization.
+Thus, your program may appear to run a little more slowly when started
+in the debugger. If this causes problems, developers of larger
+applications may want to use ahead-of-time (AOT) compilation to JIT the
+offload code when their program is built, rather than when it is run
+(warning, this may also take longer to build when using <code class="docutils literal notranslate"><span class="pre">-g</span> <span class="pre">-O0</span></code>). For
+more information, see <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/compilation-flow-overview.html">Compilation Flow
+Overview</a>.</p>
+<p>When doing ahead-of-time compilation for GPU, you must use a device type
+that fits your target device. Run the following command to see the
+available GPU device options on your current machine:
+<code class="docutils literal notranslate"><span class="pre">ocloc</span> <span class="pre">compile</span> <span class="pre">--help</span></code></p>
+<p>Additionally, the debug mode for the kernel must be enabled. The
+following example AoT compilation command targets the KBL device:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">dpcpp</span><span class="w"> </span><span class="o">-</span><span class="n">g</span><span class="w"> </span><span class="o">-</span><span class="n">O0</span><span class="w"> </span><span class="o">-</span><span class="n">fsycl</span><span class="o">-</span><span class="n">targets</span><span class="o">=</span><span class="n">spir64_gen</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">sycldevice</span><span class="w"> </span>\
+<span class="o">-</span><span class="n">Xs</span><span class="w"> </span><span class="s">&quot;-device kbl -internal_options -cl-kernel-debug-enable -options -cl-opt-disable&quot;</span><span class="w"> </span><span class="n">myprogram</span><span class="p">.</span><span class="n">cpp</span>
+</pre></div>
+</div>
+</section>
+<section id="building-an-openmp-executable-for-use-with-intel-distribution-for-gdb">
+<h2>Building an OpenMP* Executable for use with Intel® Distribution for GDB*<a class="headerlink" href="#building-an-openmp-executable-for-use-with-intel-distribution-for-gdb" title="Link to this heading">#</a></h2>
+<p>Compile and link your program using the <code class="docutils literal notranslate"><span class="pre">-g</span> <span class="pre">-O0</span></code> flags. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>icpx<span class="w"> </span>-fiopenmp<span class="w"> </span>-O0<span class="w"> </span>-fopenmp-targets<span class="o">=</span>spir64<span class="w"> </span>-c<span class="w"> </span>-g<span class="w"> </span>myprogram.cpp
+icpx<span class="w"> </span>-fiopenmp<span class="w"> </span>-O0<span class="w"> </span>-fopenmp-targets<span class="o">=</span>spir64<span class="w"> </span>-g<span class="w"> </span>myprogram.o
+</pre></div>
+</div>
+<p>Set the following environment variables to disable optimizations and
+enable debug info for the kernel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">LIBOMPTARGET_OPENCL_COMPILATION_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-g -cl-opt-disable&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LIBOMPTARGET_LEVEL0_COMPILATION_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-g -cl-opt-disable&quot;</span>
+
+..<span class="w"> </span>toctree::
+<span class="w">   </span>:maxdepth:<span class="w"> </span><span class="m">1</span>
+
+<span class="w">   </span>debug-cpu-gpu-major-diffs
+</pre></div>
+</div>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Documentation</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../gdb-ug/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User’s Guide</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+      &copy; Copyright 2024, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,8 @@
+.. _debug-cpu-gpu-major-diffs:
+
+Debugging a Kernel on CPU and GPU: Major Differences
+####################################################
+
+.. include:: ../../../applications.debuggers.gdb.documentation/tutorial_lin/source/index.rst
+   :start-after: Debugging a Kernel on CPU and GPU: Major Differences
+   :end-before: To start debugging, refer to the following sections:

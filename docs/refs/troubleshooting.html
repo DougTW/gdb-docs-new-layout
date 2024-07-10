@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Troubleshooting &#8212; GDB Docs: Layout Four</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script src="../_static/documentation_options.js?v=8a448e45"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Release Notes" href="release-notes.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">GDB Docs: Layout Four</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview/index.html">
+   What is Intel® Distribution for GDB*?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html">
+   Getting Started Guide: Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html">
+   Getting Started Guide: Windows
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../gdb-ug/index.html">
+   User’s Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../overview/debug-cpu-gpu-major-diffs.html">
+     Debugging a Kernel on CPU and GPU: Major Differences
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dbex/debug-linux-ex-lt.html">
+   Debugging Linux Applications with GDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dbex/debug-windows-ex.html">
+   Debugging Windows Applications with GDB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../videos/index.html">
+   Videos
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="blank.html">
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gdb-oneapi-faq.html">
+   FAQs for GDB*
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="known-issues.html">
+   Known Issues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="release-notes.html">
+   Release Notes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Troubleshooting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://www.intel.com">
+   Intel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/distribution-for-gdb.html">
+   GDB homepage
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/refs/troubleshooting.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#template-operators-cannot-be-found">
+   Template Operators Cannot Be Found
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessor-operator-cannot-be-resolved">
+   Accessor Operator [] Cannot Be Resolved
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gdb-appears-to-hang-at-synchronization-points">
+   GDB appears to hang at synchronization points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernel-stops-responding">
+   Kernel Stops Responding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-breakpoints">
+   Conditional Breakpoints
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#all-stop-mode">
+     All-stop mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-stop-mode">
+     Non-stop mode
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Troubleshooting</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#template-operators-cannot-be-found">
+   Template Operators Cannot Be Found
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessor-operator-cannot-be-resolved">
+   Accessor Operator [] Cannot Be Resolved
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gdb-appears-to-hang-at-synchronization-points">
+   GDB appears to hang at synchronization points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kernel-stops-responding">
+   Kernel Stops Responding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conditional-breakpoints">
+   Conditional Breakpoints
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#all-stop-mode">
+     All-stop mode
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-stop-mode">
+     Non-stop mode
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="troubleshooting">
+<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h1>
+<section id="template-operators-cannot-be-found">
+<h2>Template Operators Cannot Be Found<a class="headerlink" href="#template-operators-cannot-be-found" title="Link to this heading">#</a></h2>
+<p>The compiler omits the code of a template class method if that method
+is not used in the code. This is a C++ issue and may cause
+inconvenience when you want to invoke the omitted function. This
+issue is seen in SYCL* because the basic classes (<code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code>,
+<code class="docutils literal notranslate"><span class="pre">nd_range</span></code>, <code class="docutils literal notranslate"><span class="pre">accessor</span></code>, and others) are templates that have
+several overloaded operators. Here are some examples:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>p<span class="w"> </span>index
+
+<span class="nv">$1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>sycl::_V1::id&lt;<span class="m">1</span>&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="m">32</span><span class="o">}</span>
+
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>p<span class="w"> </span>index<span class="w"> </span>+<span class="w"> </span><span class="m">5</span>
+
+Could<span class="w"> </span>not<span class="w"> </span>find<span class="w"> </span>operator<span class="w"> </span>+.
+</pre></div>
+</div>
+<p>As a solution, you can explicitly instantiate a template class in
+your source. Then the methods of the template instance are available
+in the binary. The instantiations can be surrounded with
+<code class="docutils literal notranslate"><span class="pre">#ifndef</span> <span class="pre">NDEBUG</span></code> and <code class="docutils literal notranslate"><span class="pre">#endif</span></code> to avoid code bloat in release
+builds. Here is an example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifndef NDEBUG</span>
+
+
+template<span class="w"> </span>class<span class="w"> </span>sycl::id&lt;<span class="m">1</span>&gt;<span class="p">;</span>
+template<span class="w"> </span>class<span class="w"> </span>sycl::id&lt;<span class="m">2</span>&gt;<span class="p">;</span>
+template<span class="w"> </span>class<span class="w"> </span>sycl::id&lt;<span class="m">3</span>&gt;<span class="p">;</span>
+template<span class="w"> </span>class<span class="w"> </span>sycl::range&lt;<span class="m">1</span>&gt;<span class="p">;</span>
+template<span class="w"> </span>class<span class="w"> </span>sycl::nd_range&lt;<span class="m">1</span>&gt;<span class="p">;</span>
+
+
+<span class="c1">#endif // #ifndef NDEBUG</span>
+</pre></div>
+</div>
+</section>
+<section id="accessor-operator-cannot-be-resolved">
+<h2>Accessor Operator [] Cannot Be Resolved<a class="headerlink" href="#accessor-operator-cannot-be-resolved" title="Link to this heading">#</a></h2>
+<p>Elements of an <code class="docutils literal notranslate"><span class="pre">accessor</span></code> object cannot be accessed using the
+multi-dimensional access syntax during expression evaluation. See
+the example below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>print<span class="w"> </span>anAccessor<span class="o">[</span><span class="m">5</span><span class="o">][</span><span class="m">3</span><span class="o">][</span><span class="m">4</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Cannot<span class="w"> </span>resolve<span class="w"> </span><span class="k">function</span><span class="w"> </span>operator<span class="o">[]</span><span class="w"> </span>to<span class="w"> </span>any<span class="w"> </span>overloaded<span class="w"> </span>instance
+</pre></div>
+</div>
+<p>Instead, use an <code class="docutils literal notranslate"><span class="pre">id</span></code> object:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>print<span class="w"> </span>workItemId
+
+<span class="nv">$1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>sycl::_V1::id&lt;<span class="m">3</span>&gt;<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span><span class="m">5</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">4</span><span class="o">}</span>
+
+
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>print<span class="w"> </span>anAccessor<span class="o">[</span>workItemId<span class="o">]</span>
+
+<span class="nv">$2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1234</span>
+</pre></div>
+</div>
+</section>
+<section id="gdb-appears-to-hang-at-synchronization-points">
+<h2>GDB appears to hang at synchronization points<a class="headerlink" href="#gdb-appears-to-hang-at-synchronization-points" title="Link to this heading">#</a></h2>
+<p>Synchronization points (e.g., a semaphore) may be implicitly inserted by
+the compiler at kernel boundaries. For example, consider the following
+code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>        <span class="c1">#include &lt;omp.h&gt;</span>
+<span class="mi">2</span>
+<span class="mi">3</span>        <span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="mi">4</span>        <span class="p">{</span>
+<span class="mi">5</span>
+<span class="mi">6</span>          <span class="n">const</span> <span class="nb">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="mi">7</span>          <span class="nb">float</span> <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">f</span><span class="p">;</span>
+<span class="mi">8</span>          <span class="n">const</span> <span class="nb">float</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">2.</span><span class="n">f</span><span class="p">;</span>
+<span class="mi">9</span>
+<span class="mi">10</span>         <span class="c1">#pragma omp parallel for simd reduction(+: sum)</span>
+<span class="mi">11</span>         <span class="k">for</span><span class="p">(</span><span class="n">size_t</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="mi">12</span>           <span class="nb">sum</span> <span class="o">+=</span> <span class="n">alpha</span><span class="p">;</span>
+<span class="mi">13</span>
+<span class="mi">14</span>         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="mi">15</span>       <span class="p">}</span>
+</pre></div>
+</div>
+<p>You can run this code on your supported GPU device:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OMP_TARGET_OFFLOAD</span><span class="o">=</span><span class="n">MANDATORY</span> <span class="n">LIBOMPTARGET_DEVICETYPE</span><span class="o">=</span><span class="n">GPU</span> <span class="n">LIBOMPTARGET_PLUGIN</span><span class="o">=</span><span class="n">LEVEL0</span> <span class="n">gdb</span><span class="o">-</span><span class="n">oneapi</span> <span class="o">-</span><span class="n">q</span> <span class="n">omp_test</span>
+</pre></div>
+</div>
+<p>A barrier is implicitly inserted by the compiler between lines
+<code class="docutils literal notranslate"><span class="pre">10</span></code> and <code class="docutils literal notranslate"><span class="pre">11</span></code>. You can see this by inspecting the disassembly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(gdb) info line 9
+Line 9 of &quot;main.cpp&quot; starts at address 0xfffdf000 &lt;main.extracted(void)&gt; and ends at 0xfffdf460 &lt;main.extracted(void)+1120&gt;.
+(gdb) info line 11
+Line 11 of &quot;main.cpp&quot; starts at address 0xfffe4a70 &lt;main.extracted(void)+23152&gt; and ends at 0xfffe4bb0 &lt;main.extracted(void)+23472&gt;.
+(gdb) disassemble /m 0xfffdf000,0xfffe4bb0
+0x00000000fffe0980 &lt;main.extracted(void)+6528&gt;:      (W)     send.gtwy (1|M0)    null  r4   null 0x0  0x02000004  {@1,$11} // wr:1+0, rd:0; signal barrier
+</pre></div>
+</div>
+<p>Inserting a breakpoint at line <code class="docutils literal notranslate"><span class="pre">11</span></code> and stepping into the for-loop via
+<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">scheduler-locking</span> <span class="pre">step</span></code> and <code class="docutils literal notranslate"><span class="pre">step</span></code> may cause the debugger to appear
+‘hanging’ as only the current thread is resumed and other threads, which are
+expected to signal the barrier, are not resumed. To avoid this, make sure to
+set the scheduler-locking mode to <code class="docutils literal notranslate"><span class="pre">replay</span></code> or <code class="docutils literal notranslate"><span class="pre">off</span></code> at synchronization
+points.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, GBD runs in <em>all-stop</em> mode, i.e., all threads stop when GDB
+takes control. In contrast, you can use <em>non-stop</em> mode, such that other
+threads continue when a breakpoint is hit. Refer to the <a class="reference external" href="https://sourceware.org/gdb/current/onlinedocs/gdb#Thread-Stops">GDB documentation</a>
+for more information.</p>
+</div>
+<p>Another way to work around this issue and be able to step a single
+thread over a synchronization point is using the <em>non-stop</em> mode and
+inserting a temporary breakpoint at the synchronization point. Temporary
+breakpoints are only ever hit by one thread (and are deleted afterwards)
+which, together with ‘non-stop mode’, ensures that only the first thread
+that hits the breakpoint is stopped while other threads may continue to the
+synchronization point. This enables you to step
+the thread that hit the temporary breakpoint over the synchronization point.</p>
+</section>
+<section id="kernel-stops-responding">
+<h2>Kernel Stops Responding<a class="headerlink" href="#kernel-stops-responding" title="Link to this heading">#</a></h2>
+<p>If the kernel that is offloaded to a GPU stops responding:</p>
+<ol class="arabic">
+<li><p>Check whether there are any stray `gdbserver-ze` processes
+running in the background:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ps<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>gdbserver-ze
+</pre></div>
+</div>
+</li>
+<li><p>Stop background `gdbserver-ze` processes, if there are any:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>killall<span class="w"> </span>-9<span class="w"> </span>gdbserver-ze
+</pre></div>
+</div>
+</li>
+</ol>
+<p>If the breakpoints defined inside the kernel are not hit when
+running on a GPU, and Virtualization technology for directed I/O
+(VT-d) is enabled, disable VT-d through the BIOS menu.</p>
+</section>
+<section id="conditional-breakpoints">
+<h2>Conditional Breakpoints<a class="headerlink" href="#conditional-breakpoints" title="Link to this heading">#</a></h2>
+<section id="all-stop-mode">
+<h3>All-stop mode<a class="headerlink" href="#all-stop-mode" title="Link to this heading">#</a></h3>
+<p>In all-stop mode, GDB may appear to be hanging if a conditional
+breakpoint is defined inside a kernel. This is because thousands of
+GPU threads may hit the breakpoint but may have to be resumed one by
+one if they do not satisfy the breakpoint condition. If feasible,
+modify the kernel code to have a statement that is guarded by the
+breakpoint condition, so that only the desired threads
+would hit the breakpoint in the code, e.g., move the breakpoint condition
+into an if-clause and rebuild the application. Alternatively, consider
+using the non-stop mode if applicable for your debug session.</p>
+</section>
+<section id="non-stop-mode">
+<h3>Non-stop mode<a class="headerlink" href="#non-stop-mode" title="Link to this heading">#</a></h3>
+<p>GDB may report a timeout if a conditional breakpoint is defined inside a
+kernel. In non-stop mode, GDB resumes all threads that do not satisfy the
+breakpoint condition and resuming a large number of threads may delay the
+response from gdbserver. You may want to increase the default timeout if
+you encounter this problem:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="nb">set</span> <span class="n">remotetimeout</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="release-notes.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Release Notes</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+      &copy; Copyright 2024, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

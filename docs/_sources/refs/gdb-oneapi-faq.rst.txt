@@ -1,0 +1,534 @@
+.. _gdb-oneapi-faq:
+
+FAQs for GDB\*
+##############
+
+.. (NOTE: how do we get the “articles” format applied to this FAQ? See this
+   example >
+   https://www.intel.com/content/www/us/en/developer/articles/system-requirements/gdb-system-requirements.html.)
+
+
+What is the difference between ``gdb`` and ``gdb-oneapi``?
+==========================================================
+
+The Intel® Distribution for GDB\* (``gdb-oneapi``) is a superset of the GNU
+Project debugger (``gdb``). ``gdb-oneapi`` extends a subset of existing
+``gdb`` commands and features and may, in some cases, add additional debugger
+commands. You must use ``gdb-oneapi`` to debug `SYCL\*
+C++ <https://www.intel.com/content/www/us/en/developer/tools/oneapi/training/dpc-essentials.html>`__
+and `Intel
+OpenMP <https://www.intel.com/content/www/us/en/docs/cpp-compiler/developer-guide-reference/current/use-the-openmp-libraries.html>`__
+workloads (aka kernels) running on Intel GPUs. The additional features
+in ``gdb-oneapi`` focus on debugging SYCL\* and OpenMP applications
+written in the C, C++, and Fortran languages.
+
+-  `Unique Features in Intel® Distribution for
+   GDB\* <https://www.intel.com/content/www/us/en/developer/articles/technical/unique-gdb-features.html>`__
+
+To see which version of ``gdb`` the ``gdb-oneapi`` debugger is based on,
+run the following command in a terminal session:
+
+.. code-block:: bash
+
+   $ gdb-oneapi --version
+   GNU gdb (Intel(R) Distribution for GDB\* 2024.0.0) 13.1
+
+In this example, ``gdb-oneapi`` is based on version 13.1 of the GNU Project
+debugger (``gdb``).
+
+If you get a “gdb-oneapi: command not found” or “gdb-oneapi is not
+recognized” message, either you have not installed the `Intel® oneAPI
+Base
+Toolkit <https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html>`__
+or you have not `setup the Intel oneAPI environment
+variables <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
+in your terminal session. Installing the `Intel® HPC
+Toolkit <https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html>`__
+also installs the Intel compilers and the ``gdb-oneapi`` application
+debugger.
+
+
+How do I get started debugging my GPU application?
+==================================================
+
+On your Linux\* system, use ``gdb-oneapi`` to debug CPU and Intel GPU code. On
+your Windows\* system, select the option to install the oneAPI extensions for
+Visual Studio when you are installing the `Intel® oneAPI Base Toolkit <https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html>`__
+or the `Intel® HPC Toolkit <https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html>`__.
+When debugging a Windows application the Microsoft debugger will be used for
+debugging CPU code and ``gdb-oneapi`` will be used for Intel GPU debugging. In
+both cases (Linux and Windows) the Intel oneAPI Base Toolkit and the Intel HPC
+Toolkit include the Intel SYCL compilers and the ``gdb-oneapi`` debugger. On
+Windows, both toolkits also include the Intel oneAPI extensions for Visual
+Studio.
+
+-  `Get Started with Intel® Distribution for GDB\* on Windows\* OS
+   Host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html>`__
+
+-  `Get Started with Intel® Distribution for GDB\* on Linux\* OS
+   Host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html>`__
+
+For help debugging GPU-enabled Intel OpenMP applications see this
+article:
+
+-  `Debugging the SYCL and OpenMP\* Offload
+   Process <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/debugging-the-dpc-and-openmp-offload-process.html>`__
+
+
+How can I tell if my system software and GPU hardware are properly configured for debugging my application on an Intel GPU?
+===========================================================================================================================
+
+The simplest way to check that a compatible GPU and drivers are installed
+is to use the ``sycl-ls`` command. At a minimum, you need to install the
+`Intel oneAPI DPC++/C++ compiler <https://www.intel.com/content/www/us/en/developer/articles/tool/oneapi-standalone-components.html>`__
+to get a copy of the ``sycl-ls`` utility. For more utility, install all or
+part of the `Intel oneAPI Base Toolkit <https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html>`__
+onto your development system. It includes the Intel oneAPI DPC++/C++ compiler,
+multiple SYCL-enabled libraries and the ``sycl-ls`` application. Once
+installed, open a new terminal session and source the script(s) needed to
+setup the oneAPI development environment variables. From that same terminal
+session, enter ``sycl-ls`` at the prompt, after environment setup has been
+completed.
+
+See the
+`oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
+for details regarding initialization of the oneAPI development environment.
+
+If you are working with a remote Windows debug system and cannot install the
+oneAPI development tools onto that remote Windows system, you can:
+
+-  Copy the ``sycl-ls.exe`` application from your host Windows development
+   system to a temporary directory on the remote Windows debug system.
+
+-  Install the version of the `Intel® oneAPI DPC++/C++ Compiler Runtime
+   for Windows <https://www.intel.com/content/www/us/en/developer/articles/tool/compilers-redistributable-libraries-by-version.html>`__
+   that matches the version of the compiler on your host Windows development
+   system, onto the remote Windows debug system.
+
+If there is no compatible GPU installed, you will typically see output
+like the following:
+
+.. code-block:: bash
+
+   [opencl:cpu:1] Intel(R) OpenCL, Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz OpenCL 3.0 (Build 0) [2023.16.8.0.24_160000]
+
+If there is an Intel GPU present and the appropriate GPU driver is
+installed, you will see output similar to the following:
+
+.. code-block:: bash
+
+   [opencl:acc:0] Intel(R) FPGA Emulation Platform for OpenCL(TM), Intel(R) FPGA Emulation Device OpenCL 1.2 [2023.16.9.0.01_160000]
+   [opencl:cpu:1] Intel(R) OpenCL, Intel(R) Xeon(R) Gold 6248 CPU @2.50GHz OpenCL 3.0 (Build 0) [2023.16.9.0.01_160000]
+   [ext_oneapi_level_zero:gpu:0] Intel(R) Level-Zero, Intel(R) Data Center GPU Max 1550 1.3 [1.3.26690]
+
+Notice the reference to a ``level_zero:gpu`` device in the very last
+line of the second set of output from the ``sycl-ls`` command; this
+represents a GPU that can be used for running and debugging Intel GPU
+SYCL code. You might see a GPU device listed in the sycl-ls output as
+``opencl:gpu:0``. An application that runs on an OpenCL GPU device
+cannot be debugged using ``gdb-oneapi``. However, an OpenCL application that
+runs on the FPGA emulator or on a CPU can be debugged with ``gdb-oneapi``. For
+more help understanding the output of the ``sycl-ls`` command see the
+`SYCL Device Selection in the Host
+Code <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/device-selection.html>`__
+article in the Intel oneAPI Programming Guide.
+
+In addition to the presence of a GPU, there are environment variables
+and kernel parameters that must be configured to enable debugging on the
+GPU. On Windows, the GPU debug setup is handled automatically by the
+Visual Studio extension for oneAPI development and debug. See the
+`prerequisites in the Windows Debug Getting Started
+Guide <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html#PREREQUISITES>`__
+for more details.
+
+The following environment variable is typically required for a GPU
+debug session on Linux:
+
+.. code-block:: bash
+
+   export ZET_ENABLE_PROGRAM_DEBUGGING=1
+
+If you debug as a “normal” user on a Linux system, you need to be a
+member of the `video` and `render` groups. Also, the
+``/sys/class/drm/${card}/prelim_enable_eu_debug`` feature must be
+`enabled in the GPU kernel mode
+driver <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html#SET-UP-THE-GPU-DEBUGGER>`__.
+
+The following environment variable can be used to force your SYCL
+application to run on a GPU device:
+
+.. code-block:: bash
+
+   export ONEAPI_DEVICE_SELECTOR=level_zero:gpu
+
+The following environment variables may be required, in addition, for
+an OpenMP GPU debug session:
+
+.. code-block:: bash
+
+   export LIBOMPTARGET_DEVICETYPE=GPU
+   export LIBOMPTARGET_PLUGIN=LEVEL0
+   export OMP_TARGET_OFFLOAD=mandatory
+
+Help debugging Intel® MPI Library applications can be found in the `GPU
+Support
+section <https://www.intel.com/content/www/us/en/docs/mpi-library/developer-reference-linux/current/gpu-support.html>`__
+of the `Intel® MPI Library Developer Reference for Linux\*
+OS <https://www.intel.com/content/www/us/en/docs/mpi-library/developer-reference-linux/current/overview.html>`__
+document.
+
+See the links below for more help configuring environment variables and
+driver parameters for debugging.
+
+-  `Enable GPU Debugging in the Kernel Mode
+   Driver <https://dgpu-docs.intel.com/driver/gpu-debugging.html>`__
+
+-  `Debug Environment
+   Variables <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-debug-tools-for-sycl-and-openmp-development.html#DEBUG-ENVIRONMENT-VARIABLES>`__
+
+-  `Exhaustive List of DPC++ and SYCL Devices Environment
+   Variables <https://github.com/intel/llvm/blob/sycl/sycl/doc/EnvironmentVariables.md>`__
+
+-  `Get Started with Intel® Distribution for GDB\* on Windows\* OS
+   Host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html>`__
+
+-  `Get Started with Intel® Distribution for GDB\* on Linux\* OS
+   Host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html>`__
+
+The following links may be helpful for understanding and resolving GPU
+driver issues:
+
+-  `Intel® Distribution for GDB\* System
+   Requirements <https://www.intel.com/content/www/us/en/developer/articles/system-requirements/gdb-system-requirements.html>`__
+
+-  `Configuring a Linux System for GPU
+   Debugging <https://dgpu-docs.intel.com/driver/gpu-debugging.html>`__
+
+-  `Linux Kernel Driver Types for
+   Debugging <https://dgpu-docs.intel.com/driver/kernel-driver-types.html>`__
+
+-  `Released GPU Drivers for
+   Linux <https://dgpu-docs.intel.com/releases/index.html>`__
+
+-  `Intel Arc & Iris Xe Graphics Drivers for
+   Windows <https://www.intel.com/content/www/us/en/download/785597/intel-arc-iris-xe-graphics-windows.html>`__
+
+-  `List of Intel GPU PCI
+   IDs <https://dgpu-docs.intel.com/devices/hardware-table.html>`__
+
+
+Where do I download current GPU drivers for debugging my application on GPU?
+============================================================================
+
+-  `Linux Kernel Driver Types for
+   Debugging <https://dgpu-docs.intel.com/driver/kernel-driver-types.html>`__
+
+-  `Released GPU Drivers for
+   Linux <https://dgpu-docs.intel.com/releases/index.html>`__
+
+-  `Intel Arc & Iris Xe Graphics Drivers for
+   Windows <https://www.intel.com/content/www/us/en/download/785597/intel-arc-iris-xe-graphics-windows.html>`__
+
+
+Can I debug my GPU application with Eclipse?
+============================================
+
+Yes, the Eclipse IDE for C/C++ Developers is supported “natively” by the
+``gdb-oneapi`` debugger on Linux (Windows is not supported). This means that
+standard debug support is provided using the Eclipse IDE for C/C++ Developers
+distribution (Eclipse version 2023-06 (4.28) or later).
+
+For access to advanced ``gdb-oneapi`` features (such as visualizing SIMD
+lanes) in an IDE, you must use Visual Studio (on Windows) or Visual Studio
+Code (on Linux). The guide below describes how to configure the Eclipse IDE to
+use ``gdb-oneapi`` to debug applications on Linux.
+
+-  `Using Eclipse IDE to Debug SYCL Applications on a Linux OS
+   Host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/using-eclipse-ide-to-debug-dpc-applications-on-a.html>`__
+
+-  `SSH: Running Applications Built with
+   Eclipse\* <https://www.intel.com/content/www/us/en/docs/oneapi-base-toolkit/get-started-guide-linux/current/ssh-running-applications-built-with-eclipse.html>`__
+
+-  `SSH: Password-less Access to Remote Linux\*
+   Target <https://www.intel.com/content/www/us/en/docs/oneapi-base-toolkit/get-started-guide-linux/current/ssh-password-less-access-to-remote-linux-target.html>`__
+
+
+Can I debug my GPU application with Visual Studio on Windows?
+=============================================================
+
+Yes, a ``gdb-oneapi`` Visual Studio extension is available for use with the
+Microsoft Visual Studio IDE. During installation of the `Intel® oneAPI
+Base Toolkit (Base
+Kit) <https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html>`__
+you are given the option to install a collection of Visual Studio
+extensions that support development of Intel oneAPI applications on your
+Windows system. Support for developing and debugging Fortran
+applications requires installation of the `Intel® HPC
+Toolkit <https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html>`__
+(HPC Kit).
+
+-  The list of supported GPU devices `can be found
+   here <https://www.intel.com/content/www/us/en/developer/articles/system-requirements/gdb-system-requirements.html>`__.
+
+-  Be sure to `install the latest GPU
+   drivers <https://www.intel.com/content/www/us/en/download/785597/intel-arc-iris-xe-graphics-windows.html>`__
+   onto your Windows debug system.
+
+-  Local GPU debugging requires a dedicated GPU for display, in addition
+   to an Intel GPU that supports SYCL or Intel OpenMP compute
+   applications.
+
+-  Use remote GPU debugging when your Windows test system does not have
+   a dedicated GPU for display. In that case, two Windows systems are
+   required: a host and a target (the remote system). Visual Studio and
+   the `Base
+   Kit <https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html>`__
+   must be installed on the host system. During development, your oneAPI
+   application is deployed from the host system to the target system,
+   where it will run and be debugged.
+
+-  Your remote target system may require installation of the oneAPI
+   runtime libraries to run your application on the remote system. You
+   can find the runtime packages in the “Runtime Versions” section of
+   the “`Single Component Downloads and Runtime
+   Versions <https://www.intel.com/content/www/us/en/developer/articles/tool/oneapi-standalone-components.html>`__”
+   article.
+
+-  For a step-by-step guide, read `Get Started with Intel® Distribution
+   for GDB\* on Windows\* OS
+   Host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html>`__.
+
+
+Can I debug my GPU application with Visual Studio Code?
+=======================================================
+
+Yes, several oneAPI extensions are available for developing oneAPI
+applications with Visual Studio Code (aka VSCode). A summary of the
+Intel oneAPI extensions for VSCode can be found in the `Using Visual
+Studio Code with Intel® oneAPI Toolkits User
+Guide <https://www.intel.com/content/www/us/en/docs/oneapi/user-guide-vs-code/current/overview.html>`__.
+You can `find the latest oneAPI extensions for VSCode in the VSCode
+marketplace <https://marketplace.visualstudio.com/publishers/intel-corporation>`__,
+specifically the extensions that show the “oneAPI” logo. Or type
+“oneapi” into the extension marketplace dialog inside a running instance
+of VSCode (Ctrl-Shift-x or “gear icon > Extensions”).
+
+**NOTE:** The VSCode ``gdb-oneapi`` extension only supports debugging your
+application on Linux systems. For help debugging with VSCode, see the
+`“Troubleshooting” section near the end of the debug extension’s overview <https://marketplace.visualstudio.com/items?itemName=intel-corporation.oneapi-gdb-debug>`__.
+
+To debug, you need the “`GDB with GPU Debug Support for Intel oneAPI
+Toolkits <https://marketplace.visualstudio.com/items?itemName=intel-corporation.oneapi-gdb-debug>`__”
+extension as well as the ``gdb-oneapi`` debugger, which can be found in the
+`Intel® oneAPI Base
+Toolkit <https://www.intel.com/content/www/us/en/developer/tools/oneapi/toolkits.html>`__
+(Base Kit).
+
+The “`Code Sample Browser for Intel oneAPI
+Toolkits <https://marketplace.visualstudio.com/items?itemName=intel-corporation.oneapi-samples>`__”
+extension is a convenient way to browse and install Intel oneAPI samples
+that are ready to be compiled and run. Most of the samples are short and
+easy to understand. They are especially useful if you want to
+familiarize yourself with the Intel oneAPI development tools.
+
+-  `GDB with GPU Debug Support for Intel® oneAPI
+   Toolkits <https://marketplace.visualstudio.com/items?itemName=intel-corporation.oneapi-gdb-debug>`__
+
+-  `Debugging the DPC++ debugger using Visual Studio® Code on
+   Ubuntu <https://codeplay.com/portal/blogs/2023/04/25/debugging-the-dpcpp-debugger-using-visual-studio-code-on-ubuntu>`__
+
+-  `Remote Development using
+   SSH <https://code.visualstudio.com/docs/remote/ssh>`__
+
+-  `Remote SSH: Tips and
+   Tricks <https://code.visualstudio.com/blogs/2019/10/03/remote-ssh-tips-and-tricks>`__
+
+-  `SSH: Password-less Access to Remote Linux
+   Targets <https://www.intel.com/content/www/us/en/docs/oneapi-hpc-toolkit/get-started-guide-linux/current/ssh-password-less-access-to-remote-linux-target.html>`__
+
+-  `Using Visual Studio Code with Intel oneAPI
+   Toolkits <https://www.intel.com/content/www/us/en/docs/oneapi/user-guide-vs-code/current/overview.html>`__
+
+
+Where are the ``gdb-oneapi`` release notes?
+===========================================
+
+-  `Intel® Distribution for GDB\* Release
+   Notes <https://www.intel.com/content/www/us/en/developer/articles/release-notes/gdb-release-notes.html>`__
+
+
+Where is the ``gdb-oneapi`` debugging troubleshooting guide?
+============================================================
+
+-  `Linux Debugging Troubleshooting
+   Guide <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html>`__
+
+-  `Windows Debugging Troubleshooting
+   Guide <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/troubleshooting.html>`__
+
+
+Where is the Intel® Distribution for GDB\* user manual?
+=======================================================
+
+The Intel® Distribution for GDB\* (``gdb-oneapi``) is a superset of the GNU
+Project debugger (``gdb``). The complete `Intel Distribution for GDB User
+Manual <https://cdrdv2.intel.com/v1/dl/getContent/671177>`__ (PDF) is a
+superset of the `Debugging with
+GDB <https://sourceware.org/gdb/current/onlinedocs/gdb#SEC_Contents>`__
+documentation; that is, the ``gdb-oneapi`` documentation extends the
+existing ``gdb`` documentation. An `Intel® Distribution for GDB∗ Reference
+Sheet <https://cdrdv2.intel.com/v1/dl/getContent/671558>`__ (PDF) is a
+one-sheet summary of the most useful ``gdb-oneapi`` commands.
+
+
+Tutorial: Debug a SYCL application on Windows
+===============================================
+
+This tutorial describes two basic debugging scenarios using Visual
+Studio and a simple SYCL application named `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__.
+One scenario is debugging a SYCL kernel that is compiled for execution
+on the CPU and the second illustrates debugging when the SYCL kernel is
+compiled to run on an Intel GPU.
+
+If you installed the Intel Samples Browser extension for Visual Studio,
+you should find the Array Transform sample within that tool. Otherwise,
+the Array Transform application used in this tutorial can be found in
+the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__. The sample includes Visual Studio project files.
+
+-  `Debugging with Intel® Distribution for GDB\* on Windows\* OS
+   Host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/overview.html>`__
+
+
+Tutorial: Debug a SYCL application on a CPU on Linux
+====================================================
+
+Use the simple SYCL application named `Array
+Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__
+to perform basic debugging operations, such as break, run, print,
+continue, info, and next. The application being debugged is limited to
+running on multiple CPU threads by setting the
+``ONEAPI_DEVICE_SELECTOR=*:cpu`` environment variable.
+
+The debug array transform application used in this tutorial can be found
+in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
+or by way of the ``oneapi-cli`` sample browser tool. After you have installed
+and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
+--help`` in your terminal command line. The sample includes a build script to
+create an application that can be debugged and run on either a CPU or a GPU
+(the compiler debug flags are set during the build).
+
+See the
+`oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
+for details regarding initialization of the oneAPI development environment.
+
+
+-  `Debug a SYCL\* Application on a
+   CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-cpu.html>`__
+
+
+Tutorial: Debug a SYCL application on a GPU on Linux
+====================================================
+
+Use a simple SYCL application named `Array
+Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__
+application to perform basic debugging operations, such as break, run,
+print, continue, info, disassemble, and next. This tutorial describes how
+to interact with SIMD lanes, as additional thread elements. The
+application being debugged is instructed to run on a GPU by setting the
+``ONEAPI_DEVICE_SELECTOR=level_zero:gpu`` environment variable.
+
+The debug array transform application used in this tutorial can be found
+in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
+or by way of the ``oneapi-cli`` sample browser tool. After you have installed
+and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
+--help`` in your terminal command line. The sample includes a build script to
+create an application that can be debugged and run on either a CPU or a GPU
+(the compiler debug flags are set during the build).
+
+See the
+`oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
+for details regarding initialization of the oneAPI development environment.
+
+
+-  `Debug a SYCL\* Application on a
+   GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>`__
+
+
+Tutorial: Debug a SYCL application in a Docker\* container
+==========================================================
+
+This tutorial describes how to debug Docker applications running on
+Intel GPU devices. It explains how to create and configure your Docker
+container to deploy and debug SYCL applications running on a GPU in that
+Docker container.
+
+The debug array transform application used in this tutorial can be found
+in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
+or by way of the ``oneapi-cli`` sample browser tool. After you have installed
+and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
+--help`` in your terminal command line. The sample includes a build script to
+create an application that can be debugged and run on either a CPU or a GPU
+(the compiler debug flags are set during the build).
+
+See the
+`oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
+for details regarding initialization of the oneAPI development environment.
+
+-  `Using Intel® Distribution for GDB with
+   Docker\* <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/docker-installation.html>`__
+
+
+Tutorial: Debug an Intel® MPI Library application running on a GPU
+==================================================================
+
+This tutorial explains how to integrate the ``gdb-oneapi`` debugger with the
+Intel MPI Library ``-gtool`` option to debug many parallel processes through
+a single user interface. The use of ``xterm`` is discussed, as an
+alternative to the Intel MPI Library ``-gtool`` option. Also, debugging
+multiple processes on multiple hosts is covered.
+
+The Jacobian Solver application used in this tutorial can be found in
+the `oneAPI Samples
+repo <https://github.com/oneapi-src/oneAPI-samples/tree/master/Libraries/MPI/jacobian_solver>`__.
+
+-  `Debugging MPI
+   Programs <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/MPI-debugging.html>`__
+
+
+Tutorial: Multi-device debugging (multiple GPU devices)
+=======================================================
+
+Debugging applications on systems containing multiple GPUs is supported
+by ``gdb-oneapi``. There are some important restrictions and limitations
+that need to be considered. Three multi-device scenarios are discussed
+in this tutorial: a single application submits multiple kernels to
+multiple devices; multiple applications submit kernels to multiple
+devices; and multiple applications submit kernels to a single device.
+
+The debug array transform application used in this tutorial can be found
+in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
+or by way of the ``oneapi-cli`` sample browser tool. After you have installed
+and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
+--help`` in your terminal command line. The sample includes a build script to
+create an application that can be debugged and run on either a CPU or a GPU
+(the compiler debug flags are set during the build).
+
+See the
+`oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
+for details regarding initialization of the oneAPI development environment.
+
+-  `Multi-Device
+   Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-target.html>`__
+
+
+Useful debugging features
+=========================
+
+Here are four useful debugging features: live-attach, auto-attach,
+pretty-printing, and prettify-frames. The first two are used to attach
+the ``gdb-oneapi`` debugger to an application that is already running but is
+not being debugged. The second two provide ways to simplify the display
+of complex SYCL objects and templates.
+
+-  `Useful Debugging
+   Features <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>`__

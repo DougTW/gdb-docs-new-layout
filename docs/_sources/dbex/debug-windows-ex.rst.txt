@@ -1,0 +1,15 @@
+.. _debug-windows-ex:
+
+Debugging Windows Applications with GDB
+#######################################
+
+.. list-table::
+   :widths: 30 70
+
+   * - `Debug a CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/debug-an-application-on-a-cpu.html>`_
+     - This example describes a basic scenario of debugging a sample SYCL\* app,
+       Array Transform, with the kernel offloaded to the CPU.
+
+   * - `Debug a GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/debug-an-application-on-a-gpu.html>`_
+     - This example describes a basic scenario of debugging a program with the kernel
+       offloaded to the GPU.

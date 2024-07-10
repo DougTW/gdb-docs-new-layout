@@ -1,0 +1,53 @@
+.. _layout4-homepage:
+
+
+Documentation
+#############
+
+.. toctree::
+   :maxdepth: 1
+
+
+   overview/index
+   Getting Started Guide: Linux <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html>
+   Getting Started Guide: Windows <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html>
+   gdb-ug/index
+   dbex/debug-linux-ex-lt
+   dbex/debug-windows-ex
+
+   videos/index
+
+
+oneAPI GDB Reference Documents
+******************************
+
+- `Multi-page HTML version <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi/>`_
+
+- `Single-page HTML version <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi.html>`_
+
+- `900+ pages PDF version <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi.pdf>`_ |pdf-icon|
+
+- `Reference Sheet PDF version <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi-reference-sheet.pdf>`_ |pdf-icon|
+
+
+References
+**********
+
+- `Intel Distribution for GDB FAQ <https://www.intel.com/content/www/us/en/developer/articles/technical/gdb-oneapi-faq.html>`_
+- `Known issues <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/known-issues.html>`_
+- `Release notes <https://www.intel.com/content/www/us/en/developer/articles/release-notes/gdb-release-notes.html>`_
+- `Troubleshooting <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html>`_
+
+.. |pdf-icon| image:: /images/pdf-logo.png
+   :height: 2ex
+
+.. toctree::
+   :hidden:
+
+   refs/blank
+   refs/gdb-oneapi-faq
+   refs/known-issues
+   refs/release-notes
+   refs/troubleshooting
+   Intel <http://www.intel.com>
+   GDB homepage <https://www.intel.com/content/www/us/en/developer/tools/oneapi/distribution-for-gdb.html>

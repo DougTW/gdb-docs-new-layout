@@ -1,0 +1,25 @@
+.. _known-issues:
+
+
+.. *Tutorial: Debugging with Intel® Distribution for GDB\**
+
+
+Known Issues
+============
+
+
+-  Defining a breakpoint at a location before a kernel (i.e. inside the
+   host code) causes the breakpoint to be also defined at the start of
+   the kernel. This is analogous to defining a breakpoint at a comment
+   line or an empty line and the breakpoint being defined for the next
+   source line.
+-  While a workload submitted to a subdevice of a GPU is being debugged,
+   no other workload can be executed or debugged on the *same* subdevice.
+-  If the current SIMD lane becomes inactive within a thread, the thread
+   might silently switch its current SIMD lane to its first active SIMD
+   lane.
+-  The ``next`` and ``step`` commands may take several seconds to
+   complete execution.
+-  The debugger may stop responding if you disable displaced-stepping before
+   the start of a GPU kernel.
+

@@ -1,0 +1,198 @@
+.. _troubleshooting:
+
+Troubleshooting
+===============
+
+
+Template Operators Cannot Be Found
+----------------------------------
+
+The compiler omits the code of a template class method if that method
+is not used in the code. This is a C++ issue and may cause
+inconvenience when you want to invoke the omitted function. This
+issue is seen in SYCL\* because the basic classes (``range``, ``id``,
+``nd_range``, ``accessor``, and others) are templates that have
+several overloaded operators. Here are some examples:
+
+.. code-block:: bash
+
+   (gdb) p index
+
+   $1 = sycl::_V1::id<1> = {32}
+
+   (gdb) p index + 5
+
+   Could not find operator +.
+
+
+As a solution, you can explicitly instantiate a template class in
+your source. Then the methods of the template instance are available
+in the binary. The instantiations can be surrounded with
+``#ifndef NDEBUG`` and ``#endif`` to avoid code bloat in release
+builds. Here is an example:
+
+.. code-block:: bash
+
+   #ifndef NDEBUG
+
+
+   template class sycl::id<1>;
+   template class sycl::id<2>;
+   template class sycl::id<3>;
+   template class sycl::range<1>;
+   template class sycl::nd_range<1>;
+
+
+   #endif // #ifndef NDEBUG
+
+
+Accessor Operator [] Cannot Be Resolved
+---------------------------------------
+
+Elements of an ``accessor`` object cannot be accessed using the
+multi-dimensional access syntax during expression evaluation. See
+the example below:
+
+.. code-block:: bash
+
+
+   print anAccessor[5][3][4]
+
+
+Example output:
+
+.. code-block:: bash
+
+   Cannot resolve function operator[] to any overloaded instance
+
+
+Instead, use an ``id`` object:
+
+
+.. code-block:: bash
+
+   (gdb) print workItemId
+
+   $1 = sycl::_V1::id<3> = {5, 3, 4}
+
+
+   (gdb) print anAccessor[workItemId]
+
+   $2 = 1234
+
+GDB appears to hang at synchronization points
+---------------------------------------------
+
+Synchronization points (e.g., a semaphore) may be implicitly inserted by
+the compiler at kernel boundaries. For example, consider the following
+code:
+
+.. code-block::
+
+   1        #include <omp.h>
+   2
+   3        int main(void)
+   4        {
+   5
+   6          const int N = 8;
+   7          float sum = 0.f;
+   8          const float alpha = 2.f;
+   9
+   10         #pragma omp parallel for simd reduction(+: sum)
+   11         for(size_t j = 0; j < N; j++)
+   12           sum += alpha;
+   13
+   14         return 0;
+   15       }
+
+You can run this code on your supported GPU device:
+
+.. code-block::
+
+   OMP_TARGET_OFFLOAD=MANDATORY LIBOMPTARGET_DEVICETYPE=GPU LIBOMPTARGET_PLUGIN=LEVEL0 gdb-oneapi -q omp_test
+
+A barrier is implicitly inserted by the compiler between lines
+``10`` and ``11``. You can see this by inspecting the disassembly:
+
+.. code-block::
+
+   (gdb) info line 9
+   Line 9 of "main.cpp" starts at address 0xfffdf000 <main.extracted(void)> and ends at 0xfffdf460 <main.extracted(void)+1120>.
+   (gdb) info line 11
+   Line 11 of "main.cpp" starts at address 0xfffe4a70 <main.extracted(void)+23152> and ends at 0xfffe4bb0 <main.extracted(void)+23472>.
+   (gdb) disassemble /m 0xfffdf000,0xfffe4bb0
+   0x00000000fffe0980 <main.extracted(void)+6528>:      (W)     send.gtwy (1|M0)    null  r4   null 0x0  0x02000004  {@1,$11} // wr:1+0, rd:0; signal barrier
+
+Inserting a breakpoint at line ``11`` and stepping into the for-loop via
+``set scheduler-locking step`` and ``step`` may cause the debugger to appear
+'hanging' as only the current thread is resumed and other threads, which are
+expected to signal the barrier, are not resumed. To avoid this, make sure to
+set the scheduler-locking mode to ``replay`` or ``off`` at synchronization
+points.
+
+.. note::
+   By default, GBD runs in *all-stop* mode, i.e., all threads stop when GDB
+   takes control. In contrast, you can use *non-stop* mode, such that other
+   threads continue when a breakpoint is hit. Refer to the `GDB documentation
+   <https://sourceware.org/gdb/current/onlinedocs/gdb#Thread-Stops>`__
+   for more information.
+
+Another way to work around this issue and be able to step a single
+thread over a synchronization point is using the *non-stop* mode and
+inserting a temporary breakpoint at the synchronization point. Temporary
+breakpoints are only ever hit by one thread (and are deleted afterwards)
+which, together with 'non-stop mode', ensures that only the first thread
+that hits the breakpoint is stopped while other threads may continue to the
+synchronization point. This enables you to step
+the thread that hit the temporary breakpoint over the synchronization point.
+
+Kernel Stops Responding
+-----------------------
+
+If the kernel that is offloaded to a GPU stops responding:
+
+#. Check whether there are any stray \`gdbserver-ze\` processes
+   running in the background:
+
+   .. code-block:: bash
+
+      ps -u $USER | grep gdbserver-ze
+
+#. Stop background \`gdbserver-ze\` processes, if there are any:
+
+   .. code-block:: bash
+
+      killall -9 gdbserver-ze
+
+If the breakpoints defined inside the kernel are not hit when
+running on a GPU, and Virtualization technology for directed I/O
+(VT-d) is enabled, disable VT-d through the BIOS menu.
+
+Conditional Breakpoints
+-----------------------
+
+All-stop mode
+~~~~~~~~~~~~~
+
+In all-stop mode, GDB may appear to be hanging if a conditional
+breakpoint is defined inside a kernel. This is because thousands of
+GPU threads may hit the breakpoint but may have to be resumed one by
+one if they do not satisfy the breakpoint condition. If feasible,
+modify the kernel code to have a statement that is guarded by the
+breakpoint condition, so that only the desired threads
+would hit the breakpoint in the code, e.g., move the breakpoint condition
+into an if-clause and rebuild the application. Alternatively, consider
+using the non-stop mode if applicable for your debug session.
+
+Non-stop mode
+~~~~~~~~~~~~~
+
+GDB may report a timeout if a conditional breakpoint is defined inside a
+kernel. In non-stop mode, GDB resumes all threads that do not satisfy the
+breakpoint condition and resuming a large number of threads may delay the
+response from gdbserver. You may want to increase the default timeout if
+you encounter this problem:
+
+.. code-block::
+
+   (gdb) set remotetimeout 10

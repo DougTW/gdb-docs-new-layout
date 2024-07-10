@@ -1,0 +1,114 @@
+.. _release-notes:
+
+Release Notes
+#############
+
+Where to Find the Release
+=========================
+
+Intel® Distribution for GDB\* is available as part of the Intel® oneAPI Base Toolkit
+(Base Kit) or may also be downloaded as standalone component for any
+other Toolkit installation. To download the Base Kit and learn more about toolkits,
+visit the `Intel® oneAPI Toolkits`_ main page.
+
+Visit `Intel® oneAPI Toolkit and Component Versioning Schema`_ for more information
+about semantic versioning and how it is used with Intel® oneAPI.
+
+.. _`Intel® oneAPI Toolkits`: https://www.intel.com/content/www/us/en/developer/tools/oneapi/overview.html
+.. _`Intel® oneAPI Toolkit and Component Versioning Schema`: https://www.intel.com/content/www/us/en/developer/tools/oneapi/overview.html
+
+Release Notes for Linux\* OS
+============================
+
+Major Features
+--------------
+
+- Multi-target: The debugger can orchestrate multiple targets of different
+  architectures. This feature allows you to debug the "host" portion and the "kernel"
+  of a SYCL\* program in the same Intel Distribution for GDB session.
+- Auto-attach: The debugger automatically creates an inferior that attaches itself to
+  the Intel® Graphics Technology target to be able to receive events and control the
+  GPU for native debugging.
+- Thread SIMD lanes: The debugger displays SIMD lane information for the GPU threads
+  on the command line interface. You can switch between lanes.
+- Support for debugging a kernel offloaded to a CPU, GPU, or FPGA-emulation device.
+- The debugger is based on the GDB\* 14.1 release.
+
+Key Capabilities
+----------------
+
+- Support for Intel® Iris® Xe Graphics.
+- Automatically detecting JIT-compiled, or dynamically loaded, kernel code for debugging.
+- Defining breakpoints (both inside and outside of a kernel) to halt the execution
+  of the program.
+- Inspecting and changing the values of variables in the application.
+- Inspecting and changing register values.
+- Listing the threads; switching the current thread context.
+- Listing active SIMD lanes; switching the current SIMD lane context per thread.
+- Evaluating and printing the values of expressions in multiple threads and SIMD lane
+  contexts.
+- Disassembling the machine instructions.
+- Displaying and navigating the function call-stack.
+- Source and instruction-level stepping.
+- Non-stop and all-stop debug mode.
+- Recording the execution using Intel® Processor Trace (Intel® PT).
+- Printing of Intel PT PTWRITE payloads in the instruction history and function-call
+  history.
+- Reading and writing Intel® Advanced Matrix Extensions (Intel® AMX) registers.
+- Reading and writing of the Intel® CET Shadow Stack Pointer (pl3_ssp) register.
+
+System Requirements
+-------------------
+
+- General hardware requirements: `Intel® oneAPI Base Toolkit System Requirements`_.
+- Specific system requirements: `Intel® Distribution for GDB\* System Requirements`_.
+
+.. _`Intel® oneAPI Base Toolkit System Requirements`: https://www.intel.com/content/www/us/en/developer/articles/system-requirements/intel-oneapi-base-toolkit-system-requirements.html
+.. _`Intel® Distribution for GDB\* System Requirements`: https://www.intel.com/content/www/us/en/developer/articles/system-requirements/gdb-system-requirements.html
+
+Documentation
+-------------
+
+- To set up the debugger, refer to `Get Started with Debugging SYCL\*`_.
+- To follow basic debugging scenarios, refer to the `Tutorial`_.
+- To see common Intel Distribution for GDB commands, refer to the `Reference Sheet`_.
+
+.. _`Get Started with Debugging SYCL\*`: https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux
+.. _`Tutorial`: https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux
+.. _`Reference Sheet`: https://cdrdv2.intel.com/v1/dl/getContent/671558
+
+Changes in the 2024.2 Release
+-----------------------------
+
+- Debugging support for Intel MPX has been removed.  This includes the
+  removal of
+  - MPX register support
+  - the commands ``set|show mpx bound``
+
+Changes in the 2024.1 Release
+-----------------------------
+
+- Added support for reading and writing of the Intel® CET Shadow Stack
+  Pointer (pl3_ssp) register.  Support for these items to be added:
+
+  - ``return``, ``call`` and displaced stepping on CALL instructions when
+    debugging programs using CET
+  - pl3_ssp in coredump files
+
+- Rebased to GDB version 14.1. See the changes
+  `here <https://www.sourceware.org/gdb/news/>`._
+- Added global option ``set print shadowed on|off`` to omit shadowed
+  variables for C/C++ and Fortran on ``info locals``.  By default shadowed
+  variables are printed.
+- Added support for breakpoints inside atomic regions, e.g., inside
+  a sequence of dpas instructions labeled as "Atomic".
+- Added support for debugging GPU kernels in large-grf mode.  Large-grf mode
+  allows kernels to run with double the number of GRF registers per thread
+  but only half the number of concurrent threads.
+- Various bug fixes, including the following:
+
+  - If GDB dies with an internal error or is killed, a gdbserver-ze
+    process is no longer left running in the background.
+  - A problem that was causing delays in the start-up phase when using the
+    non-stop mode is fixed.
+
