@@ -1,0 +1,103 @@
+.. _major-diffs:
+
+Debugging a Kernel on CPU and GPU: Major Differences
+####################################################
+
+The behavior and commands of Intel Distribution for GDB are very close
+to the standard GDB. The CPU debugging experience is almost the same;
+however, there are differences in GPU debugging, coming from the
+architecture.
+
+In comparison to debugging on a CPU, debugging a kernel on a GPU has a
+few differences:
+
+.. list-table::
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+
+   * - **Aspect**
+     - **Description**
+     - **CPU**
+     - **GPU**
+
+   * - Threads and single instruction, multiple data (SIMD) lanes
+     - When the code is vectorized, *threads* process vectors of data
+       elements in parallel. *SIMD lane* is a logical unit of execution for accessing data elements within an instruction.
+     - The debugger does not support SIMD lanes. Even if your code is
+       vectorized, you cannot switch context to a non-default SIMD lane.
+     - The debugger supports threads and SIMD lanes. You can switch the
+       context to a particular thread or SIMD lane during debugging.
+       When kernels are compiled in debug mode, most SIMD instructions
+       have 8 or 16 lanes (i.e. execution channels). To refer to a particular
+       SIMD lane of a thread, use a SIMD lane identifier in the format
+       *thread ID:lane*. To learn more about debugging programs with multiple
+       threads, refer to Chapter 4.10 of `Intel® Distribution for GDB\* User       Guide <https://cdrdv2.intel.com/v1/dl/getContent/671177>`__.
+
+
+The following commands behave differently during GPU debugging:
+
+.. list-table::
+   :widths: 25 25 25 25
+   :header-rows: 1
+
+
+   * - **Command**
+     - **Description**
+     - **Modification**
+     - **Example/Comment**
+
+   * - disassemble
+     - Disassemble the current function.
+     - GEN instructions and registers are shown.
+     - N/A
+
+   * - - step
+       - stepi
+       - next
+     - - Single-step a source line, stepping into function calls.
+       - Single-step a machine  instruction.
+       - Single-step a source line, stepping over function calls.
+     - SIMD lanes are supported and SIMD lane switches can occur.
+     - next [Switching to SIMD lane0]
+
+   * - thread
+     - - Switch to a specified thread.
+       - Switch context to the SIMD lane of the specified thread.
+     - SIMD lanes are supported.
+     - - thread 2.5
+       - thread 2.6:1
+
+   * - thread apply
+     - Apply a command to the specified SIMD lane of the thread.
+     - SIMD lanes are supported.
+     - thread apply 2.3:*print element* prints the value of the *element* variable
+       for each active lane of thread 2.3.Useful for inspecting vectorized values.
+
+   * - info threads
+     - Display information about threads with ID, including their active SIMD
+       lanes.
+     - SIMD lanes are supported.
+     - Use the -stopped option to filter out the unavailable threads.
+
+   * - ``info devices``
+     - Display information about the available devices.
+     - New command.
+     - N/A
+
+   * - ``commands``
+     - Specify a list of commands to execute when your program stops due to a
+       particular breakpoint.
+     - SIMD lanes are supported. With the /a modifier, breakpoint actions apply
+       to all SIMD lanes that match the condition of the specified breakpoint.
+     - commands /a print element end prints the element value for all SIMD
+       lanes that match the condition of the specified breakpoint.
+
+   * - ``break``
+     - Create a breakpoint at a specified line.
+     - - SIMD lanes are supported. You can create a breakpoint at a special
+         lane.
+       - You can specify a breakpoint for a particular inferior.
+     - - break 56 thread 2:3 triggers the break only for thread 2 if lane 3
+         is active.
+       - break 56 inferior 2 triggers the break only for inferior 2.

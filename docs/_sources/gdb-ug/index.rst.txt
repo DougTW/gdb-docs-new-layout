@@ -1,20 +1,17 @@
-.. _users-guide-index:
+.. _user-guide-index:
 
-User's Guide
-############
+User Guide
+##########
 
 
-- `Debugging a Kernel on GDB and gdb-oneapi: Major Differences <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html#DEBUGGING-A-KERNEL-ON-CPU-AND-GPU-MAJOR-DIFFERENCES>`_
-
-- `Unique GDB Features <https://www.intel.com/content/www/us/en/developer/articles/technical/unique-gdb-features.html>`_
-
-- `Useful Debugging Features <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>`_
-
-- `Intel oneAPI Programming Guide: Debugging <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/debugging-the-dpc-and-openmp-offload-process.html>`_
 
 
 
 .. toctree::
    :maxdepth: 1
 
-   ../overview/debug-cpu-gpu-major-diffs
+   unique-gdb-features
+   major-diffs
+   useful-info
+
+`Intel oneAPI Programming Guide: Debugging <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/debugging-the-dpc-and-openmp-offload-process.html>`_

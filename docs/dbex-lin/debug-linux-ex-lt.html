@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Known Issues &#8212; GDB Docs: Layout Four</title>
+    <title>Debugging Linux Applications with GDB &#8212; GDB Docs: Layout Four</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,8 +32,6 @@
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Release Notes" href="release-notes.html" />
-    <link rel="prev" title="FAQs for GDB*" href="gdb-oneapi-faq.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -124,7 +122,7 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../dbex-lin/index.html">
+  <a class="reference internal" href="index.html">
    Debugging Examples in Linux
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -146,29 +144,29 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="blank.html">
+  <a class="reference internal" href="../refs/blank.html">
    .
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="gdb-oneapi-faq.html">
+  <a class="reference internal" href="../refs/gdb-oneapi-faq.html">
    FAQs for GDB*
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/known-issues.html">
    Known Issues
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="release-notes.html">
+  <a class="reference internal" href="../refs/release-notes.html">
    Release Notes
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
+  <a class="reference internal" href="../refs/troubleshooting.html">
    Troubleshooting
   </a>
  </li>
@@ -255,7 +253,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/refs/known-issues.rst.txt"
+        <a href="../_sources/dbex-lin/debug-linux-ex-lt.rst.txt"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -304,7 +302,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Known Issues</h1>
+                <h1>Debugging Linux Applications with GDB</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -316,24 +314,55 @@ title="Print to PDF"
                 
               <div>
                 
-  <span class="target" id="known-issues"></span><section id="id1">
-<h1>Known Issues<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Defining a breakpoint at a location before a kernel (i.e. inside the
-host code) causes the breakpoint to be also defined at the start of
-the kernel. This is analogous to defining a breakpoint at a comment
-line or an empty line and the breakpoint being defined for the next
-source line.</p></li>
-<li><p>While a workload submitted to a subdevice of a GPU is being debugged,
-no other workload can be executed or debugged on the <em>same</em> subdevice.</p></li>
-<li><p>If the current SIMD lane becomes inactive within a thread, the thread
-might silently switch its current SIMD lane to its first active SIMD
-lane.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">next</span></code> and <code class="docutils literal notranslate"><span class="pre">step</span></code> commands may take several seconds to
-complete execution.</p></li>
-<li><p>The debugger may stop responding if you disable displaced-stepping before
-the start of a GPU kernel.</p></li>
-</ul>
+  <section id="debugging-linux-applications-with-gdb">
+<span id="debug-linux-ex-lt"></span><h1>Debugging Linux Applications with GDB<a class="headerlink" href="#debugging-linux-applications-with-gdb" title="Link to this heading">#</a></h1>
+<table class="table">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html">Debug a CPU</a></p></td>
+<td><p>Use the simple SYCL application named
+<a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform">Array Transform</a> to
+perform basic debugging operations, such as <code class="code docutils literal notranslate"><span class="pre">break</span></code>, <code class="code docutils literal notranslate"><span class="pre">run</span></code>,
+<code class="code docutils literal notranslate"><span class="pre">print</span></code>, <code class="code docutils literal notranslate"><span class="pre">continue</span></code>, <code class="code docutils literal notranslate"><span class="pre">info</span></code>, and <code class="code docutils literal notranslate"><span class="pre">next</span></code>. The
+application being debugged is limited to running on multiple CPU
+threads by setting the <code class="code docutils literal notranslate"><span class="pre">ONEAPI_DEVICE_SELECTOR=*:cpu</span></code>
+environment variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html">Debug a GPU</a></p></td>
+<td><p>Use a simple SYCL application named <a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform">Array Transform</a>
+to perform basic debugging operations, such as <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">run</span></code>,
+<code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">disassemble</span></code>, and <code class="docutils literal notranslate"><span class="pre">next</span></code>.
+This tutorial describes how to interact with SIMD lanes, as additional
+thread elements. The application being debugged is instructed to run
+on a GPU by setting the <code class="docutils literal notranslate"><span class="pre">ONEAPI_DEVICE_SELECTOR=level_zero:gpu</span></code>
+environment variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html">Debug an FPGA</a></p></td>
+<td><p>The FPGA emulator runs on the CPU and behaves similarly to the CPU
+device. Make sure you complete the necessary setup steps described in
+the <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux">Get Started Guide</a>
+and proceed with instructions on <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-cpu.html#basic-debugging">Basic Debugging on CPU</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html">Debug an OpenCL Application</a></p></td>
+<td><p>Starting with the 2023.0 release of oneAPI, debugging OpenCL™
+applications is <em>not</em> supported. For earlier versions (2022.x and
+earlier), see <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html">these instructions</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html">Debugging Options</a></p></td>
+<td><p>This section has some useful options for debugging, such as
+Auto-Attach, Reducing Overhead, Pretty-Printing, Prettify Frames,
+and more.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/live-attach.html">Live Attach</a></p></td>
+<td><p>The debugger supports attaching to applications that are already
+running. This may be useful to debug workloads that show hang-like
+behavior, such as deadlocks, infinite loops, etc.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 
 
@@ -344,20 +373,6 @@ the start of a GPU kernel.</p></li>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="gdb-oneapi-faq.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">FAQs for GDB*</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="release-notes.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Release Notes</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

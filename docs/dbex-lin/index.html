@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Debugging Windows Applications with GDB &#8212; GDB Docs: Layout Four</title>
+    <title>Debugging Examples in Linux &#8212; GDB Docs: Layout Four</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,8 +32,8 @@
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Videos" href="../videos/index.html" />
-    <link rel="prev" title="Debugging Linux Applications with GDB" href="debug-linux-ex-lt.html" />
+    <link rel="next" title="Debugging Examples in Windows" href="../dbex-win/index.html" />
+    <link rel="prev" title="Hard-to-find and Useful Information for gdb-oneapi" href="../gdb-ug/useful-info.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -98,7 +98,7 @@
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../gdb-ug/index.html">
-   User’s Guide
+   User Guide
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -107,20 +107,37 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../overview/debug-cpu-gpu-major-diffs.html">
+    <a class="reference internal" href="../gdb-ug/unique-gdb-features.html">
+     Unique Features in Intel® Distribution for GDB*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../gdb-ug/major-diffs.html">
      Debugging a Kernel on CPU and GPU: Major Differences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../gdb-ug/useful-info.html">
+     Hard-to-find and Useful Information for gdb-oneapi
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="debug-linux-ex-lt.html">
-   Debugging Linux Applications with GDB
-  </a>
- </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Debugging Windows Applications with GDB
+   Debugging Examples in Linux
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dbex-win/index.html">
+   Debugging Examples in Windows
   </a>
  </li>
  <li class="toctree-l1">
@@ -238,7 +255,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/dbex/debug-windows-ex.rst.txt"
+        <a href="../_sources/dbex-lin/index.rst.txt"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -287,7 +304,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Debugging Windows Applications with GDB</h1>
+                <h1>Debugging Examples in Linux</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -299,24 +316,48 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="debugging-windows-applications-with-gdb">
-<span id="debug-windows-ex"></span><h1>Debugging Windows Applications with GDB<a class="headerlink" href="#debugging-windows-applications-with-gdb" title="Link to this heading">#</a></h1>
-<table class="table">
-<colgroup>
-<col style="width: 30.0%" />
-<col style="width: 70.0%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/debug-an-application-on-a-cpu.html">Debug a CPU</a></p></td>
-<td><p>This example describes a basic scenario of debugging a sample SYCL* app,
-Array Transform, with the kernel offloaded to the CPU.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/debug-an-application-on-a-gpu.html">Debug a GPU</a></p></td>
-<td><p>This example describes a basic scenario of debugging a program with the kernel
-offloaded to the GPU.</p></td>
-</tr>
-</tbody>
-</table>
+  <section id="debugging-examples-in-linux">
+<span id="debug-linux-examples-index"></span><h1>Debugging Examples in Linux<a class="headerlink" href="#debugging-examples-in-linux" title="Link to this heading">#</a></h1>
+<p>After you’ve installed and configured Intel® Distribution for GDB*,
+here are some examples of debugging on Linux.</p>
+<dl class="simple glossary">
+</dl>
+<dl class="simple">
+<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html">Debug a cpu</a></dt><dd><p>Use the simple SYCL application named
+<a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform">Array Transform</a> to
+perform basic debugging operations, such as <code class="code docutils literal notranslate"><span class="pre">break</span></code>, <code class="code docutils literal notranslate"><span class="pre">run</span></code>,
+<code class="code docutils literal notranslate"><span class="pre">print</span></code>, <code class="code docutils literal notranslate"><span class="pre">continue</span></code>, <code class="code docutils literal notranslate"><span class="pre">info</span></code>, and <code class="code docutils literal notranslate"><span class="pre">next</span></code>. The
+application being debugged is limited to running on multiple CPU
+threads by setting the <code class="code docutils literal notranslate"><span class="pre">ONEAPI_DEVICE_SELECTOR=*:cpu</span></code>
+environment variable.</p>
+</dd>
+<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html">Debug a gpu</a></dt><dd><p>Use a simple SYCL application named
+<a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform">Array Transform</a>
+to perform basic debugging operations, such as <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">run</span></code>,
+<code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">disassemble</span></code>, and <code class="docutils literal notranslate"><span class="pre">next</span></code>.
+This tutorial describes how to interact with SIMD lanes, as additional
+thread elements. The application being debugged is instructed to run on
+a GPU by setting the <code class="docutils literal notranslate"><span class="pre">ONEAPI_DEVICE_SELECTOR=level_zero:gpu</span></code>
+environment variable.</p>
+</dd>
+<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html">Debug an FPGA</a></dt><dd><p>The FPGA emulator runs on the CPU and behaves similarly to the CPU device.
+Make sure you complete the necessary setup steps described in the
+<a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux">Get Started Guide</a>
+and proceed with instructions on <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-cpu.html#basic-debugging">Basic Debugging on CPU</a>.</p>
+</dd>
+<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html">Debug an OpenCL Application</a></dt><dd><p>Starting with the 2023.0 release of oneAPI, debugging OpenCL™ applications
+is <em>not</em> supported. For earlier versions (2022.x and earlier), see <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html">these instructions</a>.</p>
+</dd>
+<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html">Debugging options</a></dt><dd><p>This section has some useful options for debugging, such as Auto-Attach, Reducing
+Overhead, Pretty-Printing, Prettify Frames, and more.</p>
+</dd>
+<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/live-attach.html">Live Attach</a></dt><dd><p>The debugger supports attaching to applications that are already running.
+This may be useful to debug workloads that show hang-like behavior, such as
+deadlocks, infinite loops, etc.</p>
+</dd>
+</dl>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
 
@@ -327,17 +368,17 @@ offloaded to the GPU.</p></td>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="debug-linux-ex-lt.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../gdb-ug/useful-info.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Debugging Linux Applications with GDB</p>
+            <p class="prev-next-title">Hard-to-find and Useful Information for gdb-oneapi</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../videos/index.html" title="next page">
+    <a class='right-next' id="next-link" href="../dbex-win/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Videos</p>
+        <p class="prev-next-title">Debugging Examples in Windows</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

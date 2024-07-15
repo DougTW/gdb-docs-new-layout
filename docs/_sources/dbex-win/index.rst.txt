@@ -1,7 +1,11 @@
-.. _debug-windows-ex:
+.. _debug-windows-examples-index:
 
-Debugging Windows Applications with GDB
-#######################################
+Debugging Examples in Windows
+#############################
+
+If you're debugging applications on Windows, here are some debugging
+scenarios on Windows after you’ve installed and configured
+Intel® Distribution for GDB\*.
 
 .. list-table::
    :widths: 30 70

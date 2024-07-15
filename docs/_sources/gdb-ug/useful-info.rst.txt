@@ -1,0 +1,21 @@
+.. _useful-info:
+
+Hard-to-find and Useful Information for gdb-oneapi
+##################################################
+
+This page contains links to key pieces of information that are otherwise
+hard to find.
+
+Useful debugging features
+*************************
+
+Here are four useful debugging features: live-attach, auto-attach,
+pretty-printing, and prettify-frames. The first two are used to attach
+the gdb-oneapi debugger to an application that is already running but is
+not being debugged. The second two provide ways to simplify the display
+of complex SYCL objects and templates.
+
+-  `Useful Debugging
+   Features <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>`__
+
+.. include:: ../../applications.debuggers.gdb.documentation/tutorial_lin/source/debugging-options.rst

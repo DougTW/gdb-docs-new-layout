@@ -1,0 +1,139 @@
+.. _unique-gdb-features:
+
+Unique Features in Intel® Distribution for GDB\*
+################################################
+
+The Intel® Distribution for GDB\* (:code:`gdb-oneapi`) is a superset of the GNU
+Project debugger (``gdb``). ``gdb-oneapi`` extends a subset of existing GDB
+commands and features and may, in some cases, add additional debugger
+commands. You must use ``gdb-oneapi`` to debug `SYCL
+C++ <https://www.intel.com/content/www/us/en/developer/tools/oneapi/training/dpc-essentials.html>`__
+and `Intel
+OpenMP <https://www.intel.com/content/www/us/en/docs/cpp-compiler/developer-guide-reference/current/use-the-openmp-libraries.html>`__
+workloads (aka kernels) running on Intel GPUs. The additional features in
+``gdb-oneapi`` focus on debugging SYCL and OpenMP applications written in the
+C, C++, and Fortran languages. The ``gdb-oneapi`` debugger also contains
+additional bug fixes and supports pretty-printing for several key SYCL types.
+
+See the Intel Distribution for GDB `release
+notes <https://www.intel.com/content/www/us/en/developer/articles/release-notes/gdb-release-notes.html>`__
+for details regarding new features, bug fixes, and known issues.
+
+.. note::
+   The ``gdb-oneapi`` debugger does not support debugging OpenCL kernels
+   running on a GPU. Debugging an OpenCL kernel on an Intel CPU is
+   supported.
+
+.. note::
+   When using ``gdb-oneapi`` to debug an application on an Intel CPU you
+   may find additional GDB extensions that support CPU instructions and
+   features that are unique to Intel CPUs.
+
+To see which version of GDB the ``gdb-oneapi`` debugger is based on, type
+the following:
+
+.. code-block:: bash
+
+   $ gdb-oneapi --version
+   GNU gdb (Intel(R) Distribution for GDB\* 2024.0.0) 13.1
+
+In this example, ``gdb-oneapi`` is based on version 13.1 of the GNU Project
+debugger (GDB).
+
+Some Key Extensions in Intel Distribution for GDB
+*************************************************
+
+-  View SIMD lanes; switch between lanes and threads; and view variables
+   and device info when debugging GPU kernel code.
+
+-  Use the Visual Studio and Visual Studio Code (aka VSCode) IDE
+   extensions for ``gdb-oneapi``.
+
+-  Utilize debugger features such as source stepping, expression
+   evaluation, inspecting the call stack, defining conditions for
+   breakpoints, non-stop mode, changing the scheduler-locking setting,
+   and switching the current thread/lane when debugging a GPU kernel.
+
+-  Disassemble Intel GPU machine code and display it as Intel GPU
+   assembly language.
+
+-  Attach ``gdb-oneapi`` to an already-running GPU workload.
+
+-  Debug the host application code as well as the GPU code in the same
+   debug session.
+
+-  Debug multiple GPUs in the same debug session.
+
+-  Use convenience variables to inspect GPU work items and global/local
+   indices.
+
+-  Create inferior-specific breakpoints that hit only on the inferior
+   that you specify.
+
+-  Print Intel® Processor Trace (Intel® PT) PTWRITE payloads in the
+   instruction history and function-call history (supported on Intel
+   CPUs only).
+
+-  Read and write Intel® Advanced Matrix Extensions (Intel® AMX)
+   registers (on supported Intel CPUs only).
+
+Modified commands included in Intel Distribution for GDB
+********************************************************
+
+For additional details regarding ``gdb-oneapi`` commands see this `tutorial
+for debugging with GDB on
+Linux <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html#DEBUGGING-A-KERNEL-ON-CPU-AND-GPU-MAJOR-DIFFERENCES>`__.
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 0
+
+
+   * - Command
+     - Description
+
+   * - info threads [-stopped]
+     - SIMD lane support - Prints additional information about SIMD lanes
+       Allows filtering to show only the stopped threads
+
+   * - thread [thread-id:lane]
+     - SIMD lane support – Allows switching the context to a specific SIMD
+       lane within a thread
+
+   * - thread apply [ thread-id[:lane]\| all \| all-lanes [-ascending]] [
+       command]
+     - SIMD lane support - the command can apply a command also to all/
+       selected active SIMD lanes
+
+   * - commands [command-list] end
+     - SIMD lane support - additional ‘/a’ modifier.
+
+   * - record function-call-history
+     - Now shows auxiliary information which can be omitted by ‘/s’ modifier"
+
+   * - break [location] inferior[inferior-num] [if [condition]]
+     - Sets an inferior specific breakpoint
+
+
+New commands included in Intel Distribution for GDB
+***************************************************
+
+.. list-table::
+   :widths: 10 45 45
+   :header-rows: 0
+
+
+   * - 1.
+     - info devices
+     - Display information about available GPU devices
+
+   * - 2.
+     - set/show scheduler-locking-eval
+     - Modify run behavior of GPU threads on break/step
+
+   * - 3.
+     - maint jit dump [addr] [filename]
+     - Output a JIT object with specific address to the desired
+       file for offline inspection
+
+

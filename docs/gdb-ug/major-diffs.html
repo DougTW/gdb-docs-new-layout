@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Debugging Linux Applications with GDB &#8212; GDB Docs: Layout Four</title>
+    <title>Debugging a Kernel on CPU and GPU: Major Differences &#8212; GDB Docs: Layout Four</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,6 +32,8 @@
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Hard-to-find and Useful Information for gdb-oneapi" href="useful-info.html" />
+    <link rel="prev" title="Unique Features in Intel® Distribution for GDB*" href="unique-gdb-features.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -78,7 +80,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../overview/index.html">
    What is Intel® Distribution for GDB*?
@@ -94,31 +96,48 @@
    Getting Started Guide: Windows
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../gdb-ug/index.html">
-   User’s Guide
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   User Guide
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../overview/debug-cpu-gpu-major-diffs.html">
+    <a class="reference internal" href="unique-gdb-features.html">
+     Unique Features in Intel® Distribution for GDB*
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Debugging a Kernel on CPU and GPU: Major Differences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="useful-info.html">
+     Hard-to-find and Useful Information for gdb-oneapi
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="debug-linux-ex-lt.html">
-   Debugging Linux Applications with GDB
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dbex-lin/index.html">
+   Debugging Examples in Linux
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="debug-windows-ex.html">
-   Debugging Windows Applications with GDB
+  <a class="reference internal" href="../dbex-win/index.html">
+   Debugging Examples in Windows
   </a>
  </li>
  <li class="toctree-l1">
@@ -236,7 +255,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/dbex/debug-linux-ex.rst.txt"
+        <a href="../_sources/gdb-ug/major-diffs.rst.txt"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -285,7 +304,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Debugging Linux Applications with GDB</h1>
+                <h1>Debugging a Kernel on CPU and GPU: Major Differences</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -297,44 +316,135 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="debugging-linux-applications-with-gdb">
-<span id="debug-linux-ex"></span><h1>Debugging Linux Applications with GDB<a class="headerlink" href="#debugging-linux-applications-with-gdb" title="Link to this heading">#</a></h1>
-<dl class="simple glossary">
-</dl>
-<dl class="simple">
-<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html">Debug a cpu</a></dt><dd><p>Use the simple SYCL application named
-<a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform">Array Transform</a> to
-perform basic debugging operations, such as <code class="code docutils literal notranslate"><span class="pre">break</span></code>, <code class="code docutils literal notranslate"><span class="pre">run</span></code>,
-<code class="code docutils literal notranslate"><span class="pre">print</span></code>, <code class="code docutils literal notranslate"><span class="pre">continue</span></code>, <code class="code docutils literal notranslate"><span class="pre">info</span></code>, and <code class="code docutils literal notranslate"><span class="pre">next</span></code>. The
-application being debugged is limited to running on multiple CPU
-threads by setting the <code class="code docutils literal notranslate"><span class="pre">ONEAPI_DEVICE_SELECTOR=*:cpu</span></code>
-environment variable.</p>
-</dd>
-<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html">Debug a gpu</a></dt><dd><p>Use a simple SYCL application named
-<a class="reference external" href="https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform">Array Transform</a>
-to perform basic debugging operations, such as <code class="docutils literal notranslate"><span class="pre">break</span></code>, <code class="docutils literal notranslate"><span class="pre">run</span></code>,
-<code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">continue</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">disassemble</span></code>, and <code class="docutils literal notranslate"><span class="pre">next</span></code>.
-This tutorial describes how to interact with SIMD lanes, as additional
-thread elements. The application being debugged is instructed to run on
-a GPU by setting the <code class="docutils literal notranslate"><span class="pre">ONEAPI_DEVICE_SELECTOR=level_zero:gpu</span></code>
-environment variable.</p>
-</dd>
-<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html">Debug an FPGA</a></dt><dd><p>The FPGA emulator runs on the CPU and behaves similarly to the CPU device.
-Make sure you complete the necessary setup steps described in the
-<a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux">Get Started Guide</a>
-and proceed with instructions on <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-cpu.html#basic-debugging">Basic Debugging on CPU</a>.</p>
-</dd>
-<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html">Debug an OpenCL Application</a></dt><dd><p>Starting with the 2023.0 release of oneAPI, debugging OpenCL™ applications
-is <em>not</em> supported. For earlier versions (2022.x and earlier), see <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html">these instructions</a>.</p>
-</dd>
-<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html">Debugging options</a></dt><dd><p>This section has some useful options for debugging, such as Auto-Attach, Reducing
-Overhead, Pretty-Printing, Prettify Frames, and more.</p>
-</dd>
-<dt><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/live-attach.html">Live Attach</a></dt><dd><p>The debugger supports attaching to applications that are already running.
-This may be useful to debug workloads that show hang-like behavior, such as
-deadlocks, infinite loops, etc.</p>
-</dd>
-</dl>
+  <section id="debugging-a-kernel-on-cpu-and-gpu-major-differences">
+<span id="major-diffs"></span><h1>Debugging a Kernel on CPU and GPU: Major Differences<a class="headerlink" href="#debugging-a-kernel-on-cpu-and-gpu-major-differences" title="Link to this heading">#</a></h1>
+<p>The behavior and commands of Intel Distribution for GDB are very close
+to the standard GDB. The CPU debugging experience is almost the same;
+however, there are differences in GPU debugging, coming from the
+architecture.</p>
+<p>In comparison to debugging on a CPU, debugging a kernel on a GPU has a
+few differences:</p>
+<table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Aspect</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>CPU</strong></p></th>
+<th class="head"><p><strong>GPU</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Threads and single instruction, multiple data (SIMD) lanes</p></td>
+<td><p>When the code is vectorized, <em>threads</em> process vectors of data
+elements in parallel. <em>SIMD lane</em> is a logical unit of execution for accessing data elements within an instruction.</p></td>
+<td><p>The debugger does not support SIMD lanes. Even if your code is
+vectorized, you cannot switch context to a non-default SIMD lane.</p></td>
+<td><p>The debugger supports threads and SIMD lanes. You can switch the
+context to a particular thread or SIMD lane during debugging.
+When kernels are compiled in debug mode, most SIMD instructions
+have 8 or 16 lanes (i.e. execution channels). To refer to a particular
+SIMD lane of a thread, use a SIMD lane identifier in the format
+<em>thread ID:lane</em>. To learn more about debugging programs with multiple
+threads, refer to Chapter 4.10 of <a class="reference external" href="https://cdrdv2.intel.com/v1/dl/getContent/671177">Intel® Distribution for GDB* User       Guide</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>The following commands behave differently during GPU debugging:</p>
+<table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Command</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Modification</strong></p></th>
+<th class="head"><p><strong>Example/Comment</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>disassemble</p></td>
+<td><p>Disassemble the current function.</p></td>
+<td><p>GEN instructions and registers are shown.</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>step</p></li>
+<li><p>stepi</p></li>
+<li><p>next</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>Single-step a source line, stepping into function calls.</p></li>
+<li><p>Single-step a machine  instruction.</p></li>
+<li><p>Single-step a source line, stepping over function calls.</p></li>
+</ul>
+</td>
+<td><p>SIMD lanes are supported and SIMD lane switches can occur.</p></td>
+<td><p>next [Switching to SIMD lane0]</p></td>
+</tr>
+<tr class="row-even"><td><p>thread</p></td>
+<td><ul class="simple">
+<li><p>Switch to a specified thread.</p></li>
+<li><p>Switch context to the SIMD lane of the specified thread.</p></li>
+</ul>
+</td>
+<td><p>SIMD lanes are supported.</p></td>
+<td><ul class="simple">
+<li><p>thread 2.5</p></li>
+<li><p>thread 2.6:1</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>thread apply</p></td>
+<td><p>Apply a command to the specified SIMD lane of the thread.</p></td>
+<td><p>SIMD lanes are supported.</p></td>
+<td><p>thread apply 2.3:<em>print element</em> prints the value of the <em>element</em> variable
+for each active lane of thread 2.3.Useful for inspecting vectorized values.</p></td>
+</tr>
+<tr class="row-even"><td><p>info threads</p></td>
+<td><p>Display information about threads with ID, including their active SIMD
+lanes.</p></td>
+<td><p>SIMD lanes are supported.</p></td>
+<td><p>Use the -stopped option to filter out the unavailable threads.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">info devices</span></code></p></td>
+<td><p>Display information about the available devices.</p></td>
+<td><p>New command.</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">commands</span></code></p></td>
+<td><p>Specify a list of commands to execute when your program stops due to a
+particular breakpoint.</p></td>
+<td><p>SIMD lanes are supported. With the /a modifier, breakpoint actions apply
+to all SIMD lanes that match the condition of the specified breakpoint.</p></td>
+<td><p>commands /a print element end prints the element value for all SIMD
+lanes that match the condition of the specified breakpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">break</span></code></p></td>
+<td><p>Create a breakpoint at a specified line.</p></td>
+<td><ul class="simple">
+<li><p>SIMD lanes are supported. You can create a breakpoint at a special
+lane.</p></li>
+<li><p>You can specify a breakpoint for a particular inferior.</p></li>
+</ul>
+</td>
+<td><ul class="simple">
+<li><p>break 56 thread 2:3 triggers the break only for thread 2 if lane 3
+is active.</p></li>
+<li><p>break 56 inferior 2 triggers the break only for inferior 2.</p></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 
@@ -345,6 +455,20 @@ deadlocks, infinite loops, etc.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="unique-gdb-features.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Unique Features in Intel® Distribution for GDB*</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="useful-info.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hard-to-find and Useful Information for gdb-oneapi</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

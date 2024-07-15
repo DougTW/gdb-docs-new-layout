@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Known Issues &#8212; GDB Docs: Layout Four</title>
+    <title>Debugging Examples in Windows &#8212; GDB Docs: Layout Four</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,8 +32,8 @@
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Release Notes" href="release-notes.html" />
-    <link rel="prev" title="FAQs for GDB*" href="gdb-oneapi-faq.html" />
+    <link rel="next" title="Videos" href="../videos/index.html" />
+    <link rel="prev" title="Debugging Examples in Linux" href="../dbex-lin/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -80,7 +80,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../overview/index.html">
    What is Intel® Distribution for GDB*?
@@ -135,8 +135,8 @@
   <ul class="simple">
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dbex-win/index.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Debugging Examples in Windows
   </a>
  </li>
@@ -146,29 +146,29 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="blank.html">
+  <a class="reference internal" href="../refs/blank.html">
    .
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="gdb-oneapi-faq.html">
+  <a class="reference internal" href="../refs/gdb-oneapi-faq.html">
    FAQs for GDB*
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/known-issues.html">
    Known Issues
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="release-notes.html">
+  <a class="reference internal" href="../refs/release-notes.html">
    Release Notes
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="troubleshooting.html">
+  <a class="reference internal" href="../refs/troubleshooting.html">
    Troubleshooting
   </a>
  </li>
@@ -255,7 +255,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/refs/known-issues.rst.txt"
+        <a href="../_sources/dbex-win/index.rst.txt"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -304,7 +304,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Known Issues</h1>
+                <h1>Debugging Examples in Windows</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -316,24 +316,27 @@ title="Print to PDF"
                 
               <div>
                 
-  <span class="target" id="known-issues"></span><section id="id1">
-<h1>Known Issues<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Defining a breakpoint at a location before a kernel (i.e. inside the
-host code) causes the breakpoint to be also defined at the start of
-the kernel. This is analogous to defining a breakpoint at a comment
-line or an empty line and the breakpoint being defined for the next
-source line.</p></li>
-<li><p>While a workload submitted to a subdevice of a GPU is being debugged,
-no other workload can be executed or debugged on the <em>same</em> subdevice.</p></li>
-<li><p>If the current SIMD lane becomes inactive within a thread, the thread
-might silently switch its current SIMD lane to its first active SIMD
-lane.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">next</span></code> and <code class="docutils literal notranslate"><span class="pre">step</span></code> commands may take several seconds to
-complete execution.</p></li>
-<li><p>The debugger may stop responding if you disable displaced-stepping before
-the start of a GPU kernel.</p></li>
-</ul>
+  <section id="debugging-examples-in-windows">
+<span id="debug-windows-examples-index"></span><h1>Debugging Examples in Windows<a class="headerlink" href="#debugging-examples-in-windows" title="Link to this heading">#</a></h1>
+<p>If you’re debugging applications on Windows, here are some debugging
+scenarios on Windows after you’ve installed and configured
+Intel® Distribution for GDB*.</p>
+<table class="table">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/debug-an-application-on-a-cpu.html">Debug a CPU</a></p></td>
+<td><p>This example describes a basic scenario of debugging a sample SYCL* app,
+Array Transform, with the kernel offloaded to the CPU.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/debug-an-application-on-a-gpu.html">Debug a GPU</a></p></td>
+<td><p>This example describes a basic scenario of debugging a program with the kernel
+offloaded to the GPU.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 
 
@@ -344,17 +347,17 @@ the start of a GPU kernel.</p></li>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="gdb-oneapi-faq.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../dbex-lin/index.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">FAQs for GDB*</p>
+            <p class="prev-next-title">Debugging Examples in Linux</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="release-notes.html" title="next page">
+    <a class='right-next' id="next-link" href="../videos/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Release Notes</p>
+        <p class="prev-next-title">Videos</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

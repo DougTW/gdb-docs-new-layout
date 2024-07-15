@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Unique Features in Intel® Distribution for GDB* &#8212; GDB Docs: Layout Four</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script src="../_static/documentation_options.js?v=8a448e45"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Debugging a Kernel on CPU and GPU: Major Differences" href="major-diffs.html" />
+    <link rel="prev" title="User Guide" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">GDB Docs: Layout Four</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview/index.html">
+   What is Intel® Distribution for GDB*?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html">
+   Getting Started Guide: Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html">
+   Getting Started Guide: Windows
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   User Guide
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Unique Features in Intel® Distribution for GDB*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="major-diffs.html">
+     Debugging a Kernel on CPU and GPU: Major Differences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="useful-info.html">
+     Hard-to-find and Useful Information for gdb-oneapi
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dbex-lin/index.html">
+   Debugging Examples in Linux
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dbex-win/index.html">
+   Debugging Examples in Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../videos/index.html">
+   Videos
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/blank.html">
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/gdb-oneapi-faq.html">
+   FAQs for GDB*
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/known-issues.html">
+   Known Issues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/release-notes.html">
+   Release Notes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/troubleshooting.html">
+   Troubleshooting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://www.intel.com">
+   Intel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/distribution-for-gdb.html">
+   GDB homepage
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/gdb-ug/unique-gdb-features.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-key-extensions-in-intel-distribution-for-gdb">
+   Some Key Extensions in Intel Distribution for GDB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modified-commands-included-in-intel-distribution-for-gdb">
+   Modified commands included in Intel Distribution for GDB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#new-commands-included-in-intel-distribution-for-gdb">
+   New commands included in Intel Distribution for GDB
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unique Features in Intel® Distribution for GDB*</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-key-extensions-in-intel-distribution-for-gdb">
+   Some Key Extensions in Intel Distribution for GDB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modified-commands-included-in-intel-distribution-for-gdb">
+   Modified commands included in Intel Distribution for GDB
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#new-commands-included-in-intel-distribution-for-gdb">
+   New commands included in Intel Distribution for GDB
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="unique-features-in-intel-distribution-for-gdb">
+<span id="unique-gdb-features"></span><h1>Unique Features in Intel® Distribution for GDB*<a class="headerlink" href="#unique-features-in-intel-distribution-for-gdb" title="Link to this heading">#</a></h1>
+<p>The Intel® Distribution for GDB* (<code class="code docutils literal notranslate"><span class="pre">gdb-oneapi</span></code>) is a superset of the GNU
+Project debugger (<code class="docutils literal notranslate"><span class="pre">gdb</span></code>). <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> extends a subset of existing GDB
+commands and features and may, in some cases, add additional debugger
+commands. You must use <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> to debug <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/training/dpc-essentials.html">SYCL
+C++</a>
+and <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/cpp-compiler/developer-guide-reference/current/use-the-openmp-libraries.html">Intel
+OpenMP</a>
+workloads (aka kernels) running on Intel GPUs. The additional features in
+<code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> focus on debugging SYCL and OpenMP applications written in the
+C, C++, and Fortran languages. The <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> debugger also contains
+additional bug fixes and supports pretty-printing for several key SYCL types.</p>
+<p>See the Intel Distribution for GDB <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/articles/release-notes/gdb-release-notes.html">release
+notes</a>
+for details regarding new features, bug fixes, and known issues.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> debugger does not support debugging OpenCL kernels
+running on a GPU. Debugging an OpenCL kernel on an Intel CPU is
+supported.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> to debug an application on an Intel CPU you
+may find additional GDB extensions that support CPU instructions and
+features that are unique to Intel CPUs.</p>
+</div>
+<p>To see which version of GDB the <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> debugger is based on, type
+the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gdb-oneapi<span class="w"> </span>--version
+GNU<span class="w"> </span>gdb<span class="w"> </span><span class="o">(</span>Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Distribution<span class="w"> </span><span class="k">for</span><span class="w"> </span>GDB<span class="se">\*</span><span class="w"> </span><span class="m">2024</span>.0.0<span class="o">)</span><span class="w"> </span><span class="m">13</span>.1
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> is based on version 13.1 of the GNU Project
+debugger (GDB).</p>
+<section id="some-key-extensions-in-intel-distribution-for-gdb">
+<h2>Some Key Extensions in Intel Distribution for GDB<a class="headerlink" href="#some-key-extensions-in-intel-distribution-for-gdb" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>View SIMD lanes; switch between lanes and threads; and view variables
+and device info when debugging GPU kernel code.</p></li>
+<li><p>Use the Visual Studio and Visual Studio Code (aka VSCode) IDE
+extensions for <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code>.</p></li>
+<li><p>Utilize debugger features such as source stepping, expression
+evaluation, inspecting the call stack, defining conditions for
+breakpoints, non-stop mode, changing the scheduler-locking setting,
+and switching the current thread/lane when debugging a GPU kernel.</p></li>
+<li><p>Disassemble Intel GPU machine code and display it as Intel GPU
+assembly language.</p></li>
+<li><p>Attach <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> to an already-running GPU workload.</p></li>
+<li><p>Debug the host application code as well as the GPU code in the same
+debug session.</p></li>
+<li><p>Debug multiple GPUs in the same debug session.</p></li>
+<li><p>Use convenience variables to inspect GPU work items and global/local
+indices.</p></li>
+<li><p>Create inferior-specific breakpoints that hit only on the inferior
+that you specify.</p></li>
+<li><p>Print Intel® Processor Trace (Intel® PT) PTWRITE payloads in the
+instruction history and function-call history (supported on Intel
+CPUs only).</p></li>
+<li><p>Read and write Intel® Advanced Matrix Extensions (Intel® AMX)
+registers (on supported Intel CPUs only).</p></li>
+</ul>
+</section>
+<section id="modified-commands-included-in-intel-distribution-for-gdb">
+<h2>Modified commands included in Intel Distribution for GDB<a class="headerlink" href="#modified-commands-included-in-intel-distribution-for-gdb" title="Link to this heading">#</a></h2>
+<p>For additional details regarding <code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code> commands see this <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html#DEBUGGING-A-KERNEL-ON-CPU-AND-GPU-MAJOR-DIFFERENCES">tutorial
+for debugging with GDB on
+Linux</a>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Command</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>info threads [-stopped]</p></td>
+<td><p>SIMD lane support - Prints additional information about SIMD lanes
+Allows filtering to show only the stopped threads</p></td>
+</tr>
+<tr class="row-odd"><td><p>thread [thread-id:lane]</p></td>
+<td><p>SIMD lane support – Allows switching the context to a specific SIMD
+lane within a thread</p></td>
+</tr>
+<tr class="row-even"><td><p>thread apply [ thread-id[:lane]| all | all-lanes [-ascending]] [
+command]</p></td>
+<td><p>SIMD lane support - the command can apply a command also to all/
+selected active SIMD lanes</p></td>
+</tr>
+<tr class="row-odd"><td><p>commands [command-list] end</p></td>
+<td><p>SIMD lane support - additional ‘/a’ modifier.</p></td>
+</tr>
+<tr class="row-even"><td><p>record function-call-history</p></td>
+<td><p>Now shows auxiliary information which can be omitted by ‘/s’ modifier”</p></td>
+</tr>
+<tr class="row-odd"><td><p>break [location] inferior[inferior-num] [if [condition]]</p></td>
+<td><p>Sets an inferior specific breakpoint</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="new-commands-included-in-intel-distribution-for-gdb">
+<h2>New commands included in Intel Distribution for GDB<a class="headerlink" href="#new-commands-included-in-intel-distribution-for-gdb" title="Link to this heading">#</a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 10.0%" />
+<col style="width: 45.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><ol class="arabic simple">
+<li></li>
+</ol>
+</td>
+<td><p>info devices</p></td>
+<td><p>Display information about available GPU devices</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+<td><p>set/show scheduler-locking-eval</p></td>
+<td><p>Modify run behavior of GPU threads on break/step</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td><p>maint jit dump [addr] [filename]</p></td>
+<td><p>Output a JIT object with specific address to the desired
+file for offline inspection</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">User Guide</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="major-diffs.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Debugging a Kernel on CPU and GPU: Major Differences</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+      &copy; Copyright 2024, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

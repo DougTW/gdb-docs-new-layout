@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>User’s Guide &#8212; GDB Docs: Layout Four</title>
+    <title>User Guide &#8212; GDB Docs: Layout Four</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,7 +32,7 @@
     <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Debugging a Kernel on CPU and GPU: Major Differences" href="../overview/debug-cpu-gpu-major-diffs.html" />
+    <link rel="next" title="Unique Features in Intel® Distribution for GDB*" href="unique-gdb-features.html" />
     <link rel="prev" title="What is Intel® Distribution for GDB*?" href="../overview/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -98,7 +98,7 @@
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   User’s Guide
+   User Guide
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -107,20 +107,37 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../overview/debug-cpu-gpu-major-diffs.html">
+    <a class="reference internal" href="unique-gdb-features.html">
+     Unique Features in Intel® Distribution for GDB*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="major-diffs.html">
      Debugging a Kernel on CPU and GPU: Major Differences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="useful-info.html">
+     Hard-to-find and Useful Information for gdb-oneapi
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../dbex/debug-linux-ex-lt.html">
-   Debugging Linux Applications with GDB
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dbex-lin/index.html">
+   Debugging Examples in Linux
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../dbex/debug-windows-ex.html">
-   Debugging Windows Applications with GDB
+  <a class="reference internal" href="../dbex-win/index.html">
+   Debugging Examples in Windows
   </a>
  </li>
  <li class="toctree-l1">
@@ -287,7 +304,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>User’s Guide</h1>
+                <h1>User Guide</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -299,19 +316,16 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="user-s-guide">
-<span id="users-guide-index"></span><h1>User’s Guide<a class="headerlink" href="#user-s-guide" title="Link to this heading">#</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html#DEBUGGING-A-KERNEL-ON-CPU-AND-GPU-MAJOR-DIFFERENCES">Debugging a Kernel on GDB and gdb-oneapi: Major Differences</a></p></li>
-<li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/developer/articles/technical/unique-gdb-features.html">Unique GDB Features</a></p></li>
-<li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html">Useful Debugging Features</a></p></li>
-<li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/debugging-the-dpc-and-openmp-offload-process.html">Intel oneAPI Programming Guide: Debugging</a></p></li>
-</ul>
+  <section id="user-guide">
+<span id="user-guide-index"></span><h1>User Guide<a class="headerlink" href="#user-guide" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview/debug-cpu-gpu-major-diffs.html">Debugging a Kernel on CPU and GPU: Major Differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unique-gdb-features.html">Unique Features in Intel® Distribution for GDB*</a></li>
+<li class="toctree-l1"><a class="reference internal" href="major-diffs.html">Debugging a Kernel on CPU and GPU: Major Differences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="useful-info.html">Hard-to-find and Useful Information for gdb-oneapi</a></li>
 </ul>
 </div>
+<p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/debugging-the-dpc-and-openmp-offload-process.html">Intel oneAPI Programming Guide: Debugging</a></p>
 </section>
 
 
@@ -329,10 +343,10 @@ title="Print to PDF"
             <p class="prev-next-title">What is Intel® Distribution for GDB*?</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../overview/debug-cpu-gpu-major-diffs.html" title="next page">
+    <a class='right-next' id="next-link" href="unique-gdb-features.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Debugging a Kernel on CPU and GPU: Major Differences</p>
+        <p class="prev-next-title">Unique Features in Intel® Distribution for GDB*</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

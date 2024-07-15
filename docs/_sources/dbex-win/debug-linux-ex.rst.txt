@@ -1,7 +1,10 @@
 .. _debug-linux-ex:
 
-Debugging Linux Applications with GDB
-=====================================
+Debugging Examples in Linux
+===========================
+
+After you’ve installed and configured Intel® Distribution for GDB\*,
+here are some examples of debugging on Linux.
 
 .. glossary::
 
