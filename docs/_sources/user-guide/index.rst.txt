@@ -1,0 +1,17 @@
+.. _user-guide-index:
+
+User Guide
+##########
+
+[Add some description/introduction to the content in the User Guide]
+
+
+
+.. toctree::
+   :maxdepth: 1
+
+   major-diffs
+   useful-info
+   unique-gdb-features
+   Intel oneAPI Programming Guide: Debugging <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/debugging-the-dpc-and-openmp-offload-process.html>
+   videos

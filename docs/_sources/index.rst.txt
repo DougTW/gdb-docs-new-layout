@@ -11,12 +11,9 @@ Documentation
    overview/index
    Getting Started Guide: Linux <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html>
    Getting Started Guide: Windows <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html>
-   gdb-ug/index
    dbex-lin/index
    dbex-win/index
-
-   videos/index
-
+   user-guide/index
 
 oneAPI GDB Reference Documents
 ******************************

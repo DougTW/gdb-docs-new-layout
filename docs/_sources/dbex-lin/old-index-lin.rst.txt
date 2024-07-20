@@ -1,3 +1,5 @@
+:orphan:
+
 .. _debug-examples-index:
 
 Debug Examples
@@ -24,8 +26,8 @@ Debug Examples
    :header-rows: 1
 
 
-   * - :ref:`Linux\* GDB Debugging Examples <debug-linux>`
-     - `Windows\* GDB Debugging Examples <debug-windows>`_
+   * - `Linux\* GDB Debugging Examples <dbex-lin>`_
+     - `Windows\* GDB Debugging Examples <dbex-win>`_
    * - After you’ve installed and configured Intel® Distribution for GDB\*,
        here are some examples of debugging on Linux.
      - If you're debugging applications on Windows, here are some debugging
@@ -36,16 +38,16 @@ Debug Examples
 .. toctree::
    :hidden:
 
-   ../applications.debuggers.gdb.documentation/tutorial_lin/source/debug-a-dpcpp-application-on-a-cpu
-   debug-a-dpcpp-application-on-a-gpu
-   debug-a-dpcpp-program-on-the-fpga-emulator
-   debugging-options
-   live-attach
-   multi-target
-   multi-gpu-debugging
-   debugging-an-opencl-application
-   MPI-debugging
-   docker
-   troubleshooting
-   known-issues
-   notices-and-disclaimers
+   Debug a CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html>
+   Debug a GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>
+   Debug an FPGA <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html>
+   Debugging Options <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>
+   Live Attach <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/live-attach.html>
+   Multi-Target <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-target.html>
+   Multi-Device Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-device-debugging.html>
+   Debug an OpenCL™ Application <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html>
+   MPI Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-mpi-programs.html>
+   Using Intel® Distribution for GDB\* with Docker\* <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/using-intel-distribution-for-gdb-with-docker.html>
+   Troubleshooting <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html>
+   Known Issues <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/known-issues.html>
+

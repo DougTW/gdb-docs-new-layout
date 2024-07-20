@@ -1,0 +1,27 @@
+.. _videos-index:
+
+Videos: Intel® Distribution for GDB*
+####################################
+
+[Add some introductory text and some descriptions.]
+
+.. list-table::
+   :widths: 30 70
+
+   * - `Intel® Distribution of GDB* Easily Debugs Multiple GPU Applications at Once <https://www.intel.com/content/www/us/en/developer/videos/distribution-of-gdb-debugs-multiple-gpu-apps.html>`_
+     - This video shows how to use the Intel® Distribution for GDB\* to debug multiple
+       applications running on Intel® architecture GPUs.
+
+   * - `MPI Multi-GPU Device Offload Debug Using the Intel® Distribution of GDB\* <https://www.intel.com/content/dam/www/central-libraries/us/en/videos/developer/2024-05/gdb-mpi-debug.mp4>`_
+     - This video shows you how to debug :abbr:`MPI (Message Passing Interface)` programs
+       using Intel® Distribution of GDB\*
+
+   * - `Debugging Just-in-Time and Ahead-of-Time Compiled GPU Code with the Intel® Distribution of GDB\* Part One <https://www.intel.com/content/dam/www/central-libraries/us/en/videos/developer/2024-05/gdb-jit-aot.mp4>`_
+     - This is the first of two videos that explain the differences of Just-in-Time and
+       Ahead-of-Time compilation and new compiling accelerated code for your target
+       platform.
+
+   * - `Debugging Just-in-Time and Ahead-of-Time Compiled GPU Code with the Intel® Distribution of GDB\* Part Two <https://www.intel.com/content/dam/www/central-libraries/us/en/videos/developer/2024-05/gdb-jit-aot-options.mp4>`_
+     - This is the second of two videos that explain the differences of Just-in-Time and
+       Ahead-of-Time compilation and new compiling accelerated code for your target
+       platform.

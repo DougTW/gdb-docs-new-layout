@@ -54,9 +54,7 @@ tool include:
 
 For more information and links to full documentation for Intel
 Distribution for GDB, see *Get Started with Intel® Distribution for GDB
-on* `Linux\*
-Host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-linux/top.html>`_ *\|* `Windows\*
-Host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-windows/top.html>`_.
+on* `a Linux\* host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html>`_ and *\|* `a Windows\* host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html>`_.
 
 
 Debug GPU Execution Using Intel® Distribution for GDB\* on compatible GPUs
@@ -64,8 +62,8 @@ Debug GPU Execution Using Intel® Distribution for GDB\* on compatible GPUs
 
 Intel® Distribution for GDB\* is extensively documented in *Get Started
 with Intel® Distribution for GDB on* `Linux\*
-Host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-linux/top.html>`_ *\|* `Windows\*
-Host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-windows/top.html>`_.
+host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-linux/top.html>`_ *\|* `Windows\*
+host <https://www.intel.com/content/www/us/en/develop/documentation/get-started-with-debugging-dpcpp-windows/top.html>`_.
 Useful commands are briefly described in the *Intel® Distribution for
 GDB* `Reference
 Sheet <https://cdrdv2.intel.com/v1/dl/getContent/671558>`_.

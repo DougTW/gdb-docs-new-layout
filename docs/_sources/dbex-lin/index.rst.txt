@@ -1,63 +1,84 @@
-.. _debug-linux-examples-index:
+.. _debug-linux-ex-lt:
 
 Debugging Examples in Linux
 ===========================
 
 After you’ve installed and configured Intel® Distribution for GDB\*,
-here are some examples of debugging on Linux.
+here are some examples of debugging in Linux.
 
-.. glossary::
+.. list-table::
+   :widths: 30 70
 
-`Debug a cpu <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html>`_
-      Use the simple SYCL application named
-      `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__ to
-      perform basic debugging operations, such as :code:`break`, :code:`run`,
-      :code:`print`, :code:`continue`, :code:`info`, and :code:`next`. The
-      application being debugged is limited to running on multiple CPU
-      threads by setting the :code:`ONEAPI_DEVICE_SELECTOR=*:cpu`
-      environment variable.
+   * - `Debug a CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html>`_
+     - Use the simple SYCL application named
+       `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__ to
+       perform basic debugging operations, such as :code:`break`, :code:`run`,
+       :code:`print`, :code:`continue`, :code:`info`, and :code:`next`. The
+       application being debugged is limited to running on multiple CPU
+       threads by setting the :code:`ONEAPI_DEVICE_SELECTOR=*:cpu`
+       environment variable.
 
-`Debug a gpu <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>`_
-      Use a simple SYCL application named 
-      `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__
-      to perform basic debugging operations, such as ``break``, ``run``,
-      ``print``, ``continue``, ``info``, ``disassemble``, and ``next``.
-      This tutorial describes how to interact with SIMD lanes, as additional
-      thread elements. The application being debugged is instructed to run on
-      a GPU by setting the ``ONEAPI_DEVICE_SELECTOR=level_zero:gpu``
-      environment variable.
+   * - `Debug a GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>`_
+     - Use a simple SYCL application named `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__
+       to perform basic debugging operations, such as ``break``, ``run``,
+       ``print``, ``continue``, ``info``, ``disassemble``, and ``next``.
+       This tutorial describes how to interact with SIMD lanes, as additional
+       thread elements. The application being debugged is instructed to run
+       on a GPU by setting the ``ONEAPI_DEVICE_SELECTOR=level_zero:gpu``
+       environment variable.
 
-`Debug an FPGA <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html>`_
-      The FPGA emulator runs on the CPU and behaves similarly to the CPU device.
-      Make sure you complete the necessary setup steps described in the
-      `Get Started Guide <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux>`__
-      and proceed with instructions on `Basic Debugging on CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-cpu.html#basic-debugging>`_.
+   * - `Debug an FPGA <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html>`_
+     - The FPGA emulator runs on the CPU and behaves similarly to the CPU
+       device. Make sure you complete the necessary setup steps described in
+       the `Get Started Guide <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux>`__
+       and proceed with instructions on `Basic Debugging on CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-cpu.html#basic-debugging>`_.
 
-`Debug an OpenCL Application <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html>`_
-      Starting with the 2023.0 release of oneAPI, debugging OpenCL™ applications
-      is *not* supported. For earlier versions (2022.x and earlier), see `these instructions <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html>`_.
+   * - `Debug an OpenCL™ Application <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html>`_
+     - Starting with the 2023.0 release of oneAPI, debugging OpenCL™
+       applications is *not* supported. For earlier versions (2022.x and
+       earlier), see `these instructions <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html>`_.
 
-`Debugging options <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>`_
-      This section has some useful options for debugging, such as Auto-Attach, Reducing
-      Overhead, Pretty-Printing, Prettify Frames, and more.
+   * - `Debugging Options <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>`_
+     - This example has some useful options for debugging, such as
+       Auto-Attach, Reducing Overhead, Pretty-Printing, Prettify Frames,
+       and more.
 
-`Live Attach <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/live-attach.html>`_
-      The debugger supports attaching to applications that are already running.
-      This may be useful to debug workloads that show hang-like behavior, such as
-      deadlocks, infinite loops, etc.
+   * - `Live Attach <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/live-attach.html>`_
+     - The debugger supports attaching to applications that are already
+       running. This may be useful to debug workloads that show hang-like
+       behavior, such as deadlocks, infinite loops, etc.
+
+
+
+
+   * - `MPI Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-mpi-programs.html>`_
+     - There are multiple ways to debug MPI spawned processes. One such method,
+       using ``gtool``, attaches the debugger to the specified processes, while
+       the second method, using ``xterm``, opens a terminal window for each process.
+
+   * - `Using Intel® Distribution for GDB\* with Docker\* <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/using-intel-distribution-for-gdb-with-docker.html>`_
+     - This document describes how to debug Docker\* applications running on Intel GPU devices.
+       Instructions how to debug natively can be found here. It describes how to create and
+       use Docker images for the following debugging scenarios, and how to use the
+       :command:`run image` command to debug.
+
+       This document explains how to use Using Intel® Distribution for GDB (`gdb-oneapi`)
+       with Docker containers based on the `ubuntu:latest` image. The same approach can be
+       used to debug in images based on other supported GNU/Linux distributions.
 
 .. toctree::
    :hidden:
 
-   ../applications.debuggers.gdb.documentation/tutorial_lin/source/debug-a-dpcpp-application-on-a-cpu
-   debug-a-dpcpp-application-on-a-gpu
-   debug-a-dpcpp-program-on-the-fpga-emulator
-   debugging-options
-   live-attach
-   multi-target
-   multi-gpu-debugging
-   debugging-an-opencl-application
-   MPI-debugging
-   docker
-   troubleshooting
-   known-issues
+   Debug a CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html>
+   Debug a GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>
+   Debug an FPGA <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html>
+   Debugging Options <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>
+   Live Attach <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/live-attach.html>
+   Multi-Target <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-target.html>
+   Multi-Device Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-device-debugging.html>
+   Debug an OpenCL™ Application <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html>
+   MPI Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-mpi-programs.html>
+   Using Intel® Distribution for GDB\* with Docker\* <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/using-intel-distribution-for-gdb-with-docker.html>
+   Troubleshooting <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html>
+   Known Issues <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/known-issues.html>
+

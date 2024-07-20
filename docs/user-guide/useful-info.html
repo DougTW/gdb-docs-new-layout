@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Hard-to-find and Useful Information for gdb-oneapi &#8212; Intel® Distribution for GDB*</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script src="../_static/documentation_options.js?v=8a448e45"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unique Features in Intel® Distribution for GDB*" href="unique-gdb-features.html" />
+    <link rel="prev" title="Debugging a Kernel on CPU and GPU: Major Differences" href="major-diffs.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Intel® Distribution for GDB*</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview/index.html">
+   What is Intel® Distribution for GDB*?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html">
+   Getting Started Guide: Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html">
+   Getting Started Guide: Windows
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dbex-lin/index.html">
+   Debugging Examples in Linux
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html">
+     Debug a CPU
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html">
+     Debug a GPU
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html">
+     Debug an FPGA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html">
+     Debugging Options
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/live-attach.html">
+     Live Attach
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-target.html">
+     Multi-Target
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-device-debugging.html">
+     Multi-Device Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html">
+     Debug an OpenCL™ Application
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-mpi-programs.html">
+     MPI Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/using-intel-distribution-for-gdb-with-docker.html">
+     Using Intel® Distribution for GDB\* with Docker\*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html">
+     Troubleshooting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/known-issues.html">
+     Known Issues
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dbex-win/index.html">
+   Debugging Examples in Windows
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   User Guide
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="major-diffs.html">
+     Debugging a Kernel on CPU and GPU: Major Differences
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Hard-to-find and Useful Information for gdb-oneapi
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="unique-gdb-features.html">
+     Unique Features in Intel® Distribution for GDB*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/debugging-the-dpc-and-openmp-offload-process.html">
+     Intel oneAPI Programming Guide: Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="videos.html">
+     Videos: Intel® Distribution for GDB*
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/blank.html">
+   .
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/gdb-oneapi-faq.html">
+   FAQs for GDB*
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/known-issues.html">
+   Known Issues
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/release-notes.html">
+   Release Notes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../refs/troubleshooting.html">
+   Troubleshooting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://www.intel.com">
+   Intel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/distribution-for-gdb.html">
+   GDB homepage
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/user-guide/useful-info.rst.txt"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.rst</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-debugging-features">
+   Useful debugging features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auto-attach">
+     Auto-Attach
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reducing-overhead">
+     Reducing Overhead
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pretty-printing">
+     Pretty-Printing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prettify-frames">
+     Prettify Frames
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#print-settings-for-kernel-data">
+     Print settings for kernel data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Hard-to-find and Useful Information for gdb-oneapi</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-debugging-features">
+   Useful debugging features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auto-attach">
+     Auto-Attach
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reducing-overhead">
+     Reducing Overhead
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pretty-printing">
+     Pretty-Printing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prettify-frames">
+     Prettify Frames
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#print-settings-for-kernel-data">
+     Print settings for kernel data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="hard-to-find-and-useful-information-for-gdb-oneapi">
+<span id="useful-info"></span><h1>Hard-to-find and Useful Information for gdb-oneapi<a class="headerlink" href="#hard-to-find-and-useful-information-for-gdb-oneapi" title="Link to this heading">#</a></h1>
+<p>This page contains links to key pieces of information that are otherwise
+hard to find.</p>
+<section id="useful-debugging-features">
+<h2>Useful debugging features<a class="headerlink" href="#useful-debugging-features" title="Link to this heading">#</a></h2>
+<p>Here are four useful debugging features: live-attach, auto-attach,
+pretty-printing, and prettify-frames. The first two are used to attach
+the gdb-oneapi debugger to an application that is already running but is
+not being debugged. The second two provide ways to simplify the display
+of complex SYCL objects and templates.</p>
+<hr class="docutils" />
+<section id="auto-attach">
+<h3>Auto-Attach<a class="headerlink" href="#auto-attach" title="Link to this heading">#</a></h3>
+<p>The auto-attach feature enables listening to debug events from the GPU.</p>
+<p>This feature allows the debugger to launch a <code class="docutils literal notranslate"><span class="pre">gdbserver-ze</span></code> process to
+listen to GPU debug events and connects the <code class="docutils literal notranslate"><span class="pre">gdbserver-ze</span></code> to the debugger.
+For each device on the system, an inferior is created on the <code class="docutils literal notranslate"><span class="pre">gdbserver-ze</span></code>
+connection. This feature is designed to improve your debugging
+experience and ensure that you can debug the kernel offloaded to GPU.</p>
+<p>The auto-attach feature is enabled by default.</p>
+<p>The feature does not affect the debugging capability on the CPU device.
+However, to eliminate the extra output this feature creates, you can turn
+it off with the <code class="docutils literal notranslate"><span class="pre">INTELGT_AUTO_ATTACH_DISABLE</span></code> environment variable. To
+do it, execute the following command on the shell before starting
+<code class="docutils literal notranslate"><span class="pre">gdb-oneapi</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">INTELGT_AUTO_ATTACH_DISABLE</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>To enable the feature again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">unset</span> <span class="n">INTELGT_AUTO_ATTACH_DISABLE</span>
+</pre></div>
+</div>
+</section>
+<section id="reducing-overhead">
+<h3>Reducing Overhead<a class="headerlink" href="#reducing-overhead" title="Link to this heading">#</a></h3>
+<p>Executing the <code class="docutils literal notranslate"><span class="pre">info</span> <span class="pre">threads</span></code> command may take a noticeable amount of
+time to complete, because it needs to fetch the data of a large number
+of threads when debugging GPUs. To reduce the overhead, it is
+recommended to run the <code class="docutils literal notranslate"><span class="pre">info</span> <span class="pre">threads</span></code> command without printing the
+frame arguments. This can be achieved by changing the setting globally
+using</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="nb">print</span> <span class="n">frame</span><span class="o">-</span><span class="n">arguments</span> <span class="n">none</span>
+</pre></div>
+</div>
+<p>or by using</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">print</span> <span class="n">frame</span><span class="o">-</span><span class="n">arguments</span> <span class="n">none</span> <span class="o">--</span> <span class="n">info</span> <span class="n">threads</span>
+</pre></div>
+</div>
+<p>for a single command execution.</p>
+</section>
+<section id="pretty-printing">
+<h3>Pretty-Printing<a class="headerlink" href="#pretty-printing" title="Link to this heading">#</a></h3>
+<p>The pretty-printing feature simplifies the display of complex objects.
+If a pretty-printer is registered for the type of value you are going to
+print, the debugger simplifies the output. Otherwise, the debugger
+prints the value normally.</p>
+<p>Intel® Distribution for GDB* supports pretty-printing for SYCL* types
+<code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">buffer</span></code>, and <code class="docutils literal notranslate"><span class="pre">range</span></code> from the <code class="docutils literal notranslate"><span class="pre">sycl</span></code> namespace.</p>
+<p>You can write your own pretty-printer for any type. Refer to the <a class="reference external" href="https://sourceware.org/gdb/onlinedocs/gdb/Writing-a-Pretty_002dPrinter.html">Writing a Pretty Printer</a> for more information.</p>
+<p>To display the list of pretty-printers available, run the following
+command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span> <span class="n">pretty</span><span class="o">-</span><span class="nb">print</span>
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printers</span><span class="p">:</span>
+  <span class="n">SYCL</span>
+    <span class="n">sycl</span><span class="p">::</span><span class="n">_V1</span><span class="p">::</span><span class="n">buffer</span>
+    <span class="n">sycl</span><span class="p">::</span><span class="n">_V1</span><span class="p">::</span><span class="nb">id</span>
+    <span class="n">sycl</span><span class="p">::</span><span class="n">_V1</span><span class="p">::</span><span class="nb">range</span>
+  <span class="n">builtin</span>
+    <span class="n">mpx_bound128</span>
+</pre></div>
+</div>
+<p>Pretty-printing is enabled by default. For example, when you print a
+value of the <code class="docutils literal notranslate"><span class="pre">index</span></code> variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="n">index</span>
+</pre></div>
+</div>
+<p>The output is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$10 = sycl::_V1::id&lt;1&gt; = {32}
+</pre></div>
+</div>
+<p>To disable pretty-printing and display raw content instead, use the
+<code class="docutils literal notranslate"><span class="pre">/r</span></code> flag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="o">/</span><span class="n">r</span> <span class="n">index</span>
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$11 = {&lt;sycl::_V1::detail::array&lt;1&gt;&gt; = {common_array = {32, &lt;No data fields&gt;}}}
+</pre></div>
+</div>
+<p>To disable all pretty-printers, use the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">disable</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printer</span>
+</pre></div>
+</div>
+<p>To enable pretty-printers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enable</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printer</span>
+</pre></div>
+</div>
+</section>
+<section id="prettify-frames">
+<h3>Prettify Frames<a class="headerlink" href="#prettify-frames" title="Link to this heading">#</a></h3>
+<p>Some C++ templates/SYCL constructs make it difficult to view the output of
+<code class="docutils literal notranslate"><span class="pre">info</span> <span class="pre">threads</span></code> and <code class="docutils literal notranslate"><span class="pre">backtrace</span></code> given multi-line function names.</p>
+<p>You can use the concept of frame filters to change the visibility of a
+printed frame with the ‘backtrace’ command. For details refer to the
+<a class="reference external" href="https://sourceware.org/gdb/onlinedocs/gdb/Frame-Filter-API.html">GDB Documentation Frame Filter API</a>.</p>
+<p>It is also possible to change the visibility of a printed frame globally.
+Consider the setting <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">frame-info</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="nb">set</span> <span class="nb">print</span> <span class="n">frame</span><span class="o">-</span><span class="n">info</span> <span class="n">source</span><span class="o">-</span><span class="n">line</span>
+<span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">info</span> <span class="n">threads</span> <span class="o">-</span><span class="n">stopped</span>
+  <span class="n">Id</span>           <span class="n">Target</span> <span class="n">Id</span>                                           <span class="n">Frame</span>
+  <span class="o">&lt;...&gt;</span>
+  <span class="mf">2.3</span><span class="p">:[</span><span class="mi">0</span><span class="o">-</span><span class="mi">15</span><span class="p">]</span>   <span class="n">Thread</span> <span class="mf">1.3</span>                                          <span class="mi">53</span>               <span class="nb">int</span> <span class="n">dim1</span> <span class="o">=</span> <span class="n">wiID</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="mf">2.4</span><span class="p">:[</span><span class="mi">0</span><span class="o">-</span><span class="mi">15</span><span class="p">]</span>   <span class="n">Thread</span> <span class="mf">1.4</span>                                          <span class="mi">53</span>               <span class="nb">int</span> <span class="n">dim1</span> <span class="o">=</span> <span class="n">wiID</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="mf">2.5</span><span class="p">:[</span><span class="mi">0</span><span class="o">-</span><span class="mi">15</span><span class="p">]</span>   <span class="n">Thread</span> <span class="mf">1.5</span>                                          <span class="mi">53</span>               <span class="nb">int</span> <span class="n">dim1</span> <span class="o">=</span> <span class="n">wiID</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="mf">2.6</span><span class="p">:[</span><span class="mi">0</span><span class="o">-</span><span class="mi">15</span><span class="p">]</span>   <span class="n">Thread</span> <span class="mf">1.6</span>                                          <span class="mi">53</span>               <span class="nb">int</span> <span class="n">dim1</span> <span class="o">=</span> <span class="n">wiID</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="mf">2.7</span><span class="p">:[</span><span class="mi">0</span><span class="o">-</span><span class="mi">15</span><span class="p">]</span>   <span class="n">Thread</span> <span class="mf">1.7</span>                                          <span class="mi">53</span>               <span class="nb">int</span> <span class="n">dim1</span> <span class="o">=</span> <span class="n">wiID</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="mf">2.8</span><span class="p">:[</span><span class="mi">0</span><span class="o">-</span><span class="mi">15</span><span class="p">]</span>   <span class="n">Thread</span> <span class="mf">1.8</span>                                          <span class="mi">53</span>               <span class="nb">int</span> <span class="n">dim1</span> <span class="o">=</span> <span class="n">wiID</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="o">&lt;...&gt;</span>
+</pre></div>
+</div>
+<p>Refer to the
+<a class="reference external" href="https://sourceware.org/gdb/onlinedocs/gdb/Print-Settings.html">GDB documentation</a>
+for more information.</p>
+</section>
+<section id="print-settings-for-kernel-data">
+<h3>Print settings for kernel data<a class="headerlink" href="#print-settings-for-kernel-data" title="Link to this heading">#</a></h3>
+<p>Given the sample program <code class="docutils literal notranslate"><span class="pre">array-transform.cpp</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">18</span>  <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="mi">19</span>  <span class="n">using</span> <span class="n">namespace</span> <span class="n">sycl</span><span class="p">;</span>
+    <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="mi">26</span>  <span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+<span class="mi">27</span>    <span class="n">constexpr</span> <span class="n">size_t</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">64</span><span class="p">;</span>
+<span class="mi">28</span>    <span class="nb">int</span> <span class="nb">input</span><span class="p">[</span><span class="n">length</span><span class="p">];</span>
+<span class="mi">29</span>    <span class="nb">int</span> <span class="n">output</span><span class="p">[</span><span class="n">length</span><span class="p">];</span>
+<span class="mi">30</span>
+<span class="mi">31</span>    <span class="o">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="nb">input</span>
+<span class="mi">32</span>    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="mi">33</span>      <span class="nb">input</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">100</span><span class="p">;</span>
+<span class="mi">34</span>
+<span class="mi">35</span>    <span class="k">try</span> <span class="p">{</span>
+<span class="mi">36</span>      <span class="n">queue</span> <span class="n">q</span><span class="p">(</span><span class="n">default_selector_v</span><span class="p">,</span> <span class="n">dpc_common</span><span class="p">::</span><span class="n">exception_handler</span><span class="p">);</span>
+        <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+<span class="mi">43</span>      <span class="nb">range</span> <span class="n">data_range</span><span class="p">{</span><span class="n">length</span><span class="p">};</span>
+<span class="mi">44</span>      <span class="n">buffer</span> <span class="n">buffer_in</span><span class="p">{</span><span class="nb">input</span><span class="p">,</span> <span class="n">data_range</span><span class="p">};</span>
+<span class="mi">45</span>      <span class="n">buffer</span> <span class="n">buffer_out</span><span class="p">{</span><span class="n">output</span><span class="p">,</span> <span class="n">data_range</span><span class="p">};</span>
+<span class="mi">46</span>
+<span class="mi">47</span>      <span class="n">q</span><span class="o">.</span><span class="n">submit</span><span class="p">([</span><span class="o">&amp;</span><span class="p">](</span><span class="n">auto</span> <span class="o">&amp;</span><span class="n">h</span><span class="p">)</span> <span class="p">{</span>
+<span class="mi">48</span>        <span class="n">accessor</span> <span class="ow">in</span><span class="p">(</span><span class="n">buffer_in</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">read_only</span><span class="p">);</span>
+<span class="mi">49</span>        <span class="n">accessor</span> <span class="n">out</span><span class="p">(</span><span class="n">buffer_out</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">write_only</span><span class="p">);</span>
+<span class="mi">50</span>
+<span class="mi">51</span>        <span class="o">//</span> <span class="n">kernel</span><span class="o">-</span><span class="n">start</span>
+<span class="mi">52</span>        <span class="n">h</span><span class="o">.</span><span class="n">parallel_for</span><span class="p">(</span><span class="n">data_range</span><span class="p">,</span> <span class="p">[</span><span class="o">=</span><span class="p">](</span><span class="nb">id</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">index</span><span class="p">)</span> <span class="p">{</span>
+<span class="mi">53</span>          <span class="n">size_t</span> <span class="n">id0</span> <span class="o">=</span> <span class="n">GetDim</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="mi">54</span>          <span class="nb">int</span> <span class="n">element</span> <span class="o">=</span> <span class="ow">in</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>  <span class="o">//</span> <span class="nb">breakpoint</span><span class="o">-</span><span class="n">here</span>
+</pre></div>
+</div>
+<p>To review the contents of the <code class="docutils literal notranslate"><span class="pre">sycl::buffer</span></code> object <code class="docutils literal notranslate"><span class="pre">buffer_in</span></code> of
+length 64 from inside the kernel, one can use the following trick to make
+it print as an array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(gdb) print (int[64]) *in.MData
+$1 = {100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113,
+114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128,
+129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143,
+144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158,
+159, 160, 161, 162, 163}
+</pre></div>
+</div>
+<p>Note, inside the kernel we need to use a <code class="docutils literal notranslate"><span class="pre">sycl::accessor</span></code> to access data
+in the host’s <code class="docutils literal notranslate"><span class="pre">sycl::buffer</span></code>.</p>
+<p>Use the print setting <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">elements</span></code> to further configure number of
+printed elements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(gdb) set print elements 10
+(gdb) print (int[64]) *in.MData
+$2 = {100, 101, 102, 103, 104, 105, 106, 107, 108, 109...}
+</pre></div>
+</div>
+<p>Consider the print setting <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">repeats</span></code> in case the output contains
+repeated elements:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">show</span> <span class="nb">print</span> <span class="n">repeats</span>
+<span class="n">Threshold</span> <span class="k">for</span> <span class="n">repeated</span> <span class="nb">print</span> <span class="n">elements</span> <span class="ow">is</span> <span class="mf">10.</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="major-diffs.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Debugging a Kernel on CPU and GPU: Major Differences</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="unique-gdb-features.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unique Features in Intel® Distribution for GDB*</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+      &copy; Copyright 2024, Intel Corporation.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

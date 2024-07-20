@@ -1,3 +1,5 @@
+:orphan:
+
 .. _debug-cpu-gpu-major-diffs:
 
 Debugging a Kernel on CPU and GPU: Major Differences
