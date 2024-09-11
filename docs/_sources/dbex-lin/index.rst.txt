@@ -1,33 +1,45 @@
 .. _debug-linux-ex-lt:
 
 Debugging Examples in Linux
-===========================
+###########################
 
-After you’ve installed and configured Intel® Distribution for GDB\*,
-here are some examples of debugging in Linux.
+After you’ve completed the installation and configuration
+steps in the `Get Started Guide for Linux <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html>`_,
+here are some examples of debugging applications in Linux using Intel® Distribution
+for GDB\*.
 
 .. list-table::
    :widths: 30 70
 
-   * - `Debug a CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html>`_
-     - Use the simple SYCL application named
-       `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__ to
-       perform basic debugging operations, such as :code:`break`, :code:`run`,
-       :code:`print`, :code:`continue`, :code:`info`, and :code:`next`. The
-       application being debugged is limited to running on multiple CPU
-       threads by setting the :code:`ONEAPI_DEVICE_SELECTOR=*:cpu`
-       environment variable.
+   * - `Debug a SYCL\* Application on a CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-cpu.html>`_
+     - Use the simple SYCL application named `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__
+       to perform basic debugging operations, such as :code:`break`, :code:`run`,
+       :code:`print`, :code:`continue`, :code:`info`, ``disassemble``, and :code:`next`.
+       The application being debugged is limited to running on multiple CPU threads by
+       setting the ``ONEAPI_DEVICE_SELECTOR=*:cpu`` environment variable.
 
-   * - `Debug a GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>`_
+       The debug array transform application used in this example can be found
+       in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
+       or by way of the ``oneapi-cli`` sample browser tool. After you have installed
+       and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
+       --help`` in your terminal command line. The sample includes a build script to
+       create an application that can be debugged and run on either a CPU or a GPU
+       (the compiler debug flags are set during the build).
+
+       See the `oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
+       for details regarding initialization of the oneAPI development environment.
+
+   * - `Debug a SYCL\* Application on a GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>`_
      - Use a simple SYCL application named `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__
        to perform basic debugging operations, such as ``break``, ``run``,
        ``print``, ``continue``, ``info``, ``disassemble``, and ``next``.
        This tutorial describes how to interact with SIMD lanes, as additional
        thread elements. The application being debugged is instructed to run
        on a GPU by setting the ``ONEAPI_DEVICE_SELECTOR=level_zero:gpu``
-       environment variable.
+       environment variable. For a list of differences of debugging a kernel on
+       a CPU and a GPU, refer to :ref:`Debugging a Kernel on a CPU and GPU <major-diffs>`.
 
-   * - `Debug an FPGA <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html>`_
+   * - `Debug a SYCL\* Program on the FPGA Emulator <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html>`_
      - The FPGA emulator runs on the CPU and behaves similarly to the CPU
        device. Make sure you complete the necessary setup steps described in
        the `Get Started Guide <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux>`__
@@ -48,7 +60,25 @@ here are some examples of debugging in Linux.
        running. This may be useful to debug workloads that show hang-like
        behavior, such as deadlocks, infinite loops, etc.
 
+   * - `Multi-device debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-device-debugging.html>`_
+     - Debugging applications on systems containing multiple GPUs is supported
+       by ``gdb-oneapi``. There are some important restrictions and limitations
+       that need to be considered. Three multi-device scenarios are discussed
+       in this example: a single application submits multiple kernels to
+       multiple devices; multiple applications submit kernels to multiple
+       devices; and multiple applications submit kernels to a single device.
 
+       The debug array transform application used in this example can be found
+       in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
+       or by way of the ``oneapi-cli`` sample browser tool. After you have installed
+       and initialized the Intel oneAPI Base Toolkit environment, run
+       ``oneapi-cli --help`` in your terminal command line. The sample includes a
+       build script to create an application that can be debugged and run on either
+       a CPU or a GPU (the compiler debug flags are set during the build).
+
+   * - `Multi-Target <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-target.html>`_
+     - The multi-target feature enables debugging of multiple targets in a single
+       debugging session.
 
 
    * - `MPI Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-mpi-programs.html>`_
@@ -66,12 +96,14 @@ here are some examples of debugging in Linux.
        with Docker containers based on the `ubuntu:latest` image. The same approach can be
        used to debug in images based on other supported GNU/Linux distributions.
 
+If you are experiencing problems with debugging in Linux, refer to `Troubleshoot Debugging in Linux <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html>`_.
+
 .. toctree::
    :hidden:
 
-   Debug a CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html>
-   Debug a GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>
-   Debug an FPGA <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html>
+   Debug a SYCL\* Application on a CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/2024-2/debug-a-sycl-application-on-a-cpu.html>
+   Debug a SYCL\* Application on a GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>
+   Debug a SYCL\* Program on the FPGA Emulator <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html>
    Debugging Options <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>
    Live Attach <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/live-attach.html>
    Multi-Target <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-target.html>
@@ -79,6 +111,8 @@ here are some examples of debugging in Linux.
    Debug an OpenCL™ Application <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-an-opencl-application.html>
    MPI Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-mpi-programs.html>
    Using Intel® Distribution for GDB\* with Docker\* <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/using-intel-distribution-for-gdb-with-docker.html>
-   Troubleshooting <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html>
+
+
+.. Troubleshooting <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html>
    Known Issues <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/known-issues.html>
 

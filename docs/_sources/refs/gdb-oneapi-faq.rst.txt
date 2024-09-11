@@ -1,7 +1,7 @@
 .. _gdb-oneapi-faq:
 
-FAQs for GDB\*
-##############
+Intel Distribution for GDB\* FAQ
+################################
 
 .. (NOTE: how do we get the “articles” format applied to this FAQ? See this
    example >
@@ -381,154 +381,56 @@ Sheet <https://cdrdv2.intel.com/v1/dl/getContent/671558>`__ (PDF) is a
 one-sheet summary of the most useful ``gdb-oneapi`` commands.
 
 
-Tutorial: Debug a SYCL application on Windows
-===============================================
+..  Tutorial: Debug an Intel® MPI Library application running on a GPU
+..  ==================================================================
+..  
+..  This tutorial explains how to integrate the ``gdb-oneapi`` debugger with the
+..  Intel MPI Library ``-gtool`` option to debug many parallel processes through
+..  a single user interface. The use of ``xterm`` is discussed, as an
+..  alternative to the Intel MPI Library ``-gtool`` option. Also, debugging
+..  multiple processes on multiple hosts is covered.
+..  
+..  The Jacobian Solver application used in this tutorial can be found in
+..  the `oneAPI Samples
+..  repo <https://github.com/oneapi-src/oneAPI-samples/tree/master/Libraries/MPI/jacobian_solver>`__.
 
-This tutorial describes two basic debugging scenarios using Visual
-Studio and a simple SYCL application named `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__.
-One scenario is debugging a SYCL kernel that is compiled for execution
-on the CPU and the second illustrates debugging when the SYCL kernel is
-compiled to run on an Intel GPU.
-
-If you installed the Intel Samples Browser extension for Visual Studio,
-you should find the Array Transform sample within that tool. Otherwise,
-the Array Transform application used in this tutorial can be found in
-the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__. The sample includes Visual Studio project files.
-
--  `Debugging with Intel® Distribution for GDB\* on Windows\* OS
-   Host <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/overview.html>`__
-
-
-Tutorial: Debug a SYCL application on a CPU on Linux
-====================================================
-
-Use the simple SYCL application named `Array
-Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__
-to perform basic debugging operations, such as break, run, print,
-continue, info, and next. The application being debugged is limited to
-running on multiple CPU threads by setting the
-``ONEAPI_DEVICE_SELECTOR=*:cpu`` environment variable.
-
-The debug array transform application used in this tutorial can be found
-in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
-or by way of the ``oneapi-cli`` sample browser tool. After you have installed
-and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
---help`` in your terminal command line. The sample includes a build script to
-create an application that can be debugged and run on either a CPU or a GPU
-(the compiler debug flags are set during the build).
-
-See the
-`oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
-for details regarding initialization of the oneAPI development environment.
+..  -  `Debugging MPI
+..     Programs <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/MPI-debugging.html>`__
 
 
--  `Debug a SYCL\* Application on a
-   CPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-cpu.html>`__
+..  Tutorial: Multi-device debugging (multiple GPU devices)
+..  =======================================================
+..  
+..  Debugging applications on systems containing multiple GPUs is supported
+..  by ``gdb-oneapi``. There are some important restrictions and limitations
+..  that need to be considered. Three multi-device scenarios are discussed
+..  in this tutorial: a single application submits multiple kernels to
+..  multiple devices; multiple applications submit kernels to multiple
+..  devices; and multiple applications submit kernels to a single device.
+..  
+..  The debug array transform application used in this tutorial can be found
+..  in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
+..  or by way of the ``oneapi-cli`` sample browser tool. After you have installed
+..  and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
+..  --help`` in your terminal command line. The sample includes a build script to
+..  create an application that can be debugged and run on either a CPU or a GPU
+..  (the compiler debug flags are set during the build).
+..  
+..  See the
+..  `oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
+..  for details regarding initialization of the oneAPI development environment.
+
+..  -  `Multi-Device
+..     Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-target.html>`__
 
 
-Tutorial: Debug a SYCL application on a GPU on Linux
-====================================================
-
-Use a simple SYCL application named `Array
-Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__
-application to perform basic debugging operations, such as break, run,
-print, continue, info, disassemble, and next. This tutorial describes how
-to interact with SIMD lanes, as additional thread elements. The
-application being debugged is instructed to run on a GPU by setting the
-``ONEAPI_DEVICE_SELECTOR=level_zero:gpu`` environment variable.
-
-The debug array transform application used in this tutorial can be found
-in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
-or by way of the ``oneapi-cli`` sample browser tool. After you have installed
-and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
---help`` in your terminal command line. The sample includes a build script to
-create an application that can be debugged and run on either a CPU or a GPU
-(the compiler debug flags are set during the build).
-
-See the
-`oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
-for details regarding initialization of the oneAPI development environment.
-
-
--  `Debug a SYCL\* Application on a
-   GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html>`__
-
-
-Tutorial: Debug a SYCL application in a Docker\* container
-==========================================================
-
-This tutorial describes how to debug Docker applications running on
-Intel GPU devices. It explains how to create and configure your Docker
-container to deploy and debug SYCL applications running on a GPU in that
-Docker container.
-
-The debug array transform application used in this tutorial can be found
-in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
-or by way of the ``oneapi-cli`` sample browser tool. After you have installed
-and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
---help`` in your terminal command line. The sample includes a build script to
-create an application that can be debugged and run on either a CPU or a GPU
-(the compiler debug flags are set during the build).
-
-See the
-`oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
-for details regarding initialization of the oneAPI development environment.
-
--  `Using Intel® Distribution for GDB with
-   Docker\* <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/docker-installation.html>`__
-
-
-Tutorial: Debug an Intel® MPI Library application running on a GPU
-==================================================================
-
-This tutorial explains how to integrate the ``gdb-oneapi`` debugger with the
-Intel MPI Library ``-gtool`` option to debug many parallel processes through
-a single user interface. The use of ``xterm`` is discussed, as an
-alternative to the Intel MPI Library ``-gtool`` option. Also, debugging
-multiple processes on multiple hosts is covered.
-
-The Jacobian Solver application used in this tutorial can be found in
-the `oneAPI Samples
-repo <https://github.com/oneapi-src/oneAPI-samples/tree/master/Libraries/MPI/jacobian_solver>`__.
-
--  `Debugging MPI
-   Programs <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/MPI-debugging.html>`__
-
-
-Tutorial: Multi-device debugging (multiple GPU devices)
-=======================================================
-
-Debugging applications on systems containing multiple GPUs is supported
-by ``gdb-oneapi``. There are some important restrictions and limitations
-that need to be considered. Three multi-device scenarios are discussed
-in this tutorial: a single application submits multiple kernels to
-multiple devices; multiple applications submit kernels to multiple
-devices; and multiple applications submit kernels to a single device.
-
-The debug array transform application used in this tutorial can be found
-in the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__
-or by way of the ``oneapi-cli`` sample browser tool. After you have installed
-and initialized the Intel oneAPI Base Toolkit environment, run ``oneapi-cli
---help`` in your terminal command line. The sample includes a build script to
-create an application that can be debugged and run on either a CPU or a GPU
-(the compiler debug flags are set during the build).
-
-See the
-`oneAPI Development Environmental Setup <https://www.intel.com/content/www/us/en/docs/oneapi/programming-guide/current/oneapi-development-environment-setup.html>`__
-for details regarding initialization of the oneAPI development environment.
-
--  `Multi-Device
-   Debugging <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/multi-target.html>`__
-
-
-Useful debugging features
-=========================
-
-Here are four useful debugging features: live-attach, auto-attach,
-pretty-printing, and prettify-frames. The first two are used to attach
-the ``gdb-oneapi`` debugger to an application that is already running but is
-not being debugged. The second two provide ways to simplify the display
-of complex SYCL objects and templates.
-
--  `Useful Debugging
-   Features <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>`__
+..  Useful debugging features
+..  =========================
+..  
+..  Here are four useful debugging features: live-attach, auto-attach,
+..  pretty-printing, and prettify-frames. The first two are used to attach
+..  the ``gdb-oneapi`` debugger to an application that is already running but is
+..  not being debugged. The second two provide ways to simplify the display
+..  of complex SYCL objects and templates.
+..  
+..  -  `Useful Debugging Features <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debugging-options.html>`__

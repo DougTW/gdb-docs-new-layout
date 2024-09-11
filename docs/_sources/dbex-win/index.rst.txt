@@ -3,9 +3,22 @@
 Debugging Examples in Windows
 #############################
 
-If you're debugging applications on Windows, here are some debugging
-scenarios on Windows after you’ve installed and configured
-Intel® Distribution for GDB\*.
+After you’ve completed the installation and configuration
+steps in the `Get Started Guide for Windows <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html>`_, here are two debugging
+examples on Windows.
+
+These examples describe two basic debugging scenarios using Visual
+Studio and a simple SYCL application named `Array Transform <https://github.com/oneapi-src/oneAPI-samples/tree/master/Tools/ApplicationDebugger/array-transform>`__.
+One scenario is debugging a SYCL kernel that is compiled for execution
+on the CPU and the second illustrates debugging when the SYCL kernel is
+compiled to run on an Intel GPU.
+
+If you installed the Intel Samples Browser extension for Visual Studio,
+you should find the Array Transform sample within that tool. Otherwise,
+the Array Transform application used in this tutorial can be found in
+the `Intel oneAPI sample repo <https://github.com/oneapi-src/oneAPI-samples>`__.
+The sample includes Visual Studio project files. For a list of differences of debugging a
+kernel on a CPU and a GPU, refer to :ref:`Debugging a Kernel on a CPU and GPU <major-diffs>`.
 
 .. list-table::
    :widths: 30 70
@@ -17,3 +30,5 @@ Intel® Distribution for GDB\*.
    * - `Debug a GPU <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/debug-an-application-on-a-gpu.html>`_
      - This example describes a basic scenario of debugging a program with the kernel
        offloaded to the GPU.
+
+If you are experiencing problems with debugging in Windows, refer to `Troubleshoot Debugging in Windows <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/troubleshooting.html>`_.

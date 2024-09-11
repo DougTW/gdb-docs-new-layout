@@ -80,7 +80,7 @@ Some Key Extensions in Intel Distribution for GDB
 Modified commands included in Intel Distribution for GDB
 ********************************************************
 
-For additional details regarding ``gdb-oneapi`` commands see this `tutorial
+For additional details regarding ``gdb-oneapi`` commands see this `example
 for debugging with GDB on
 Linux <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html#DEBUGGING-A-KERNEL-ON-CPU-AND-GPU-MAJOR-DIFFERENCES>`__.
 

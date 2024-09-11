@@ -32,7 +32,7 @@
     <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="What is Intel® Distribution for GDB*?" href="overview/index.html" />
+    <link rel="next" title="Debugging Examples in Linux" href="dbex-lin/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -81,18 +81,13 @@
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="overview/index.html">
-   What is Intel® Distribution for GDB*?
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html">
-   Getting Started Guide: Linux
+   Get Started Guide: Linux*
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html">
-   Getting Started Guide: Windows
+   Get Started Guide: Windows*
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -106,18 +101,18 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/overview.html">
-     Debug a CPU
+    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/2024-2/debug-a-sycl-application-on-a-cpu.html">
+     Debug a SYCL\* Application on a CPU
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-application-on-a-gpu.html">
-     Debug a GPU
+     Debug a SYCL\* Application on a GPU
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/debug-a-sycl-program-on-the-fpga-emulator.html">
-     Debug an FPGA
+     Debug a SYCL\* Program on the FPGA Emulator
     </a>
    </li>
    <li class="toctree-l2">
@@ -153,16 +148,6 @@
    <li class="toctree-l2">
     <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/using-intel-distribution-for-gdb-with-docker.html">
      Using Intel® Distribution for GDB\* with Docker\*
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html">
-     Troubleshooting
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/known-issues.html">
-     Known Issues
     </a>
    </li>
   </ul>
@@ -210,15 +195,15 @@
   </ul>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="refs/blank.html">
-   .
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="refs/gdb-oneapi-faq.html">
-   FAQs for GDB*
+   Intel Distribution for GDB* FAQ
   </a>
  </li>
  <li class="toctree-l1">
@@ -227,23 +212,30 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="refs/release-notes.html">
-   Release Notes
+  <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/articles/release-notes/gdb-release-notes.html">
+   Intel® Distribution for GDB\* Release Notes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Forums
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://community.intel.com/t5/Software-Development-Tools/ct-p/software-dev-tools">
+   Intel® Software Development Tools
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="refs/troubleshooting.html">
-   Troubleshooting
+  <a class="reference external" href="https://community.intel.com/t5/Intel-oneAPI-DPC-C-Compiler/bd-p/oneapi-data-parallel-c">
+   Intel oneAPI Data Parallel C Compiler
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference external" href="http://www.intel.com">
-   Intel
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/distribution-for-gdb.html">
-   GDB homepage
+  <a class="reference external" href="https://community.intel.com/t5/Intel-Fortran-Compiler/bd-p/fortran-compiler">
+   Intel® Fortran Compiler
   </a>
  </li>
 </ul>
@@ -379,14 +371,26 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#oneapi-gdb-reference-documents">
-   oneAPI GDB Reference Documents
+  <a class="reference internal nav-link" href="#intel-distribution-for-gdb-reference-manual">
+   Intel® Distribution for GDB* Reference Manual
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cheat-sheet-for-intel-distribution-for-gdb">
+   Cheat Sheet for Intel® Distribution for GDB*
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forums">
+   Forums
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
  </li>
 </ul>
 
@@ -408,14 +412,26 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#oneapi-gdb-reference-documents">
-   oneAPI GDB Reference Documents
+  <a class="reference internal nav-link" href="#intel-distribution-for-gdb-reference-manual">
+   Intel® Distribution for GDB* Reference Manual
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cheat-sheet-for-intel-distribution-for-gdb">
+   Cheat Sheet for Intel® Distribution for GDB*
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#forums">
+   Forums
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
  </li>
 </ul>
 
@@ -431,21 +447,25 @@ title="Print to PDF"
 <span id="layout4-homepage"></span><h1>Documentation<a class="headerlink" href="#documentation" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="overview/index.html">What is Intel® Distribution for GDB*?</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html">Getting Started Guide: Linux</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html">Getting Started Guide: Windows</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html">Get Started Guide: Linux*</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html">Get Started Guide: Windows*</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dbex-lin/index.html">Debugging Examples in Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dbex-win/index.html">Debugging Examples in Windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/index.html">User Guide</a></li>
 </ul>
 </div>
-<section id="oneapi-gdb-reference-documents">
-<h2>oneAPI GDB Reference Documents<a class="headerlink" href="#oneapi-gdb-reference-documents" title="Link to this heading">#</a></h2>
+<section id="intel-distribution-for-gdb-reference-manual">
+<h2>Intel® Distribution for GDB* Reference Manual<a class="headerlink" href="#intel-distribution-for-gdb-reference-manual" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://xmnboy.github.io/gdb-doc-test/gdb-oneapi/">Multi-page HTML version</a></p></li>
 <li><p><a class="reference external" href="https://xmnboy.github.io/gdb-doc-test/gdb-oneapi.html">Single-page HTML version</a></p></li>
-<li><p><a class="reference external" href="https://xmnboy.github.io/gdb-doc-test/gdb-oneapi.pdf">900+ pages PDF version</a> <a class="reference internal" href="_images/pdf-logo.png"><img alt="pdf-icon" src="_images/pdf-logo.png" style="height: 2ex;" /></a></p></li>
-<li><p><a class="reference external" href="https://xmnboy.github.io/gdb-doc-test/gdb-oneapi-reference-sheet.pdf">Reference Sheet PDF version</a> <a class="reference internal" href="_images/pdf-logo.png"><img alt="pdf-icon" src="_images/pdf-logo.png" style="height: 2ex;" /></a></p></li>
+<li><p><a class="reference external" href="https://xmnboy.github.io/gdb-doc-test/gdb-oneapi.pdf">PDF version</a> <a class="reference internal" href="_images/pdf-logo.png"><img alt="pdf-icon" src="_images/pdf-logo.png" style="height: 2ex;" /></a></p></li>
+</ul>
+</section>
+<section id="cheat-sheet-for-intel-distribution-for-gdb">
+<h2>Cheat Sheet for Intel® Distribution for GDB*<a class="headerlink" href="#cheat-sheet-for-intel-distribution-for-gdb" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://xmnboy.github.io/gdb-doc-test/gdb-oneapi-reference-sheet.pdf">Single-sheet PDF</a> <a class="reference internal" href="_images/pdf-logo.png"><img alt="pdf-icon" src="_images/pdf-logo.png" style="height: 2ex;" /></a></p></li>
 </ul>
 </section>
 <section id="references">
@@ -454,8 +474,19 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/developer/articles/technical/gdb-oneapi-faq.html">Intel Distribution for GDB FAQ</a></p></li>
 <li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/known-issues.html">Known issues</a></p></li>
 <li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/developer/articles/release-notes/gdb-release-notes.html">Release notes</a></p></li>
-<li><p><a class="reference external" href="https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html">Troubleshooting</a></p></li>
 </ul>
+</section>
+<section id="forums">
+<h2>Forums<a class="headerlink" href="#forums" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://community.intel.com/t5/Software-Development-Tools/ct-p/software-dev-tools">Intel® Software Development Tools</a></p></li>
+<li><p><a class="reference external" href="https://community.intel.com/t5/Intel-oneAPI-DPC-C-Compiler/bd-p/oneapi-data-parallel-c">Intel oneAPI Data Parallel C Compiler</a></p></li>
+<li><p><a class="reference external" href="https://community.intel.com/t5/Intel-Fortran-Compiler/bd-p/fortran-compiler">Intel® Fortran Compiler</a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -469,10 +500,10 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="overview/index.html" title="next page">
+    <a class='right-next' id="next-link" href="dbex-lin/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">What is Intel® Distribution for GDB*?</p>
+        <p class="prev-next-title">Debugging Examples in Linux</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

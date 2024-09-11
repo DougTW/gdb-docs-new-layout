@@ -8,23 +8,25 @@ Documentation
    :maxdepth: 1
 
 
-   overview/index
-   Getting Started Guide: Linux <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html>
-   Getting Started Guide: Windows <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html>
+   Get Started Guide: Linux* <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-linux/current/overview.html>
+   Get Started Guide: Windows* <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/get-started-guide-windows/current/overview.html>
    dbex-lin/index
    dbex-win/index
    user-guide/index
 
-oneAPI GDB Reference Documents
-******************************
+Intel® Distribution for GDB\* Reference Manual
+**********************************************
 
 - `Multi-page HTML version <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi/>`_
 
 - `Single-page HTML version <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi.html>`_
 
-- `900+ pages PDF version <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi.pdf>`_ |pdf-icon|
+- `PDF version <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi.pdf>`_ |pdf-icon|
 
-- `Reference Sheet PDF version <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi-reference-sheet.pdf>`_ |pdf-icon|
+Cheat Sheet for Intel® Distribution for GDB\*
+*********************************************
+
+- `Single-sheet PDF <https://xmnboy.github.io/gdb-doc-test/gdb-oneapi-reference-sheet.pdf>`_ |pdf-icon|
 
 
 References
@@ -33,7 +35,17 @@ References
 - `Intel Distribution for GDB FAQ <https://www.intel.com/content/www/us/en/developer/articles/technical/gdb-oneapi-faq.html>`_
 - `Known issues <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/known-issues.html>`_
 - `Release notes <https://www.intel.com/content/www/us/en/developer/articles/release-notes/gdb-release-notes.html>`_
-- `Troubleshooting <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html>`_
+
+.. - `Troubleshoot Debugging in Linux <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-linux/current/troubleshooting.html>`_
+.. - `Troubleshoot Debugging in Windows <https://www.intel.com/content/www/us/en/docs/distribution-for-gdb/tutorial-debugging-dpcpp-windows/current/troubleshooting.html>`_
+
+
+Forums
+******
+
+- `Intel® Software Development Tools <https://community.intel.com/t5/Software-Development-Tools/ct-p/software-dev-tools>`_
+- `Intel oneAPI Data Parallel C Compiler <https://community.intel.com/t5/Intel-oneAPI-DPC-C-Compiler/bd-p/oneapi-data-parallel-c>`_
+- `Intel® Fortran Compiler <https://community.intel.com/t5/Intel-Fortran-Compiler/bd-p/fortran-compiler>`_
 
 .. |pdf-icon| image:: /images/pdf-logo.png
    :height: 2ex
@@ -41,10 +53,19 @@ References
 .. toctree::
    :hidden:
 
-   refs/blank
+.. toctree::
+   :hidden:
+   :caption: References
+
    refs/gdb-oneapi-faq
    refs/known-issues
-   refs/release-notes
-   refs/troubleshooting
-   Intel <http://www.intel.com>
-   GDB homepage <https://www.intel.com/content/www/us/en/developer/tools/oneapi/distribution-for-gdb.html>
+   Intel® Distribution for GDB\* Release Notes <https://www.intel.com/content/www/us/en/developer/articles/release-notes/gdb-release-notes.html>
+..   refs/troubleshooting
+
+.. toctree::
+   :hidden:
+   :caption: Forums
+
+   Intel® Software Development Tools <https://community.intel.com/t5/Software-Development-Tools/ct-p/software-dev-tools>
+   Intel oneAPI Data Parallel C Compiler <https://community.intel.com/t5/Intel-oneAPI-DPC-C-Compiler/bd-p/oneapi-data-parallel-c>
+   Intel® Fortran Compiler <https://community.intel.com/t5/Intel-Fortran-Compiler/bd-p/fortran-compiler>
